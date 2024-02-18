@@ -1,0 +1,24 @@
+	
+	 ~ Logical Operators ~
+	 	* Logical operators enable us to use more than one condition
+	 	  in the WHERE condition.
+	 		- SELECT * FROM employees 
+	 			WHERE job_id = 'SA_REP' AND salary > 10000;
+	 	* Operators and meaning:
+	 		- AND: Returns TRUE if all component conditions are true
+	 		- OR: Returns TRUE if at least one of component conditions
+	 		  are true
+	 		- NOT: Returns TRUE if the condition is false.
+
+	 	* AND means all conditions must be true. 
+	 		- SELECT first_name, last_name, job_id, salary
+	 			FROM employees
+	 				WHERE job_id = 'IT_PROG' AND salary >= 5000;
+
+	 	* OR means one or more conditions must be true.
+	 		- SELECT * FROM employees WHERE (job_id = 'SA_REP' OR salary > 10000);
+
+		* The NOT operator is used to negate a condition.
+			- SELECT * FROM employees 
+			  	WHERE salary > 10000 AND job_id NOT IN ('SA_MAN', 'SA_REP');
+

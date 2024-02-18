@@ -1,0 +1,10 @@
+	
+	 ~ Using the WHERE Clause ~
+	 	* WHERE clause limits the rows by a query.
+	 		- SELECT column-names FROM table-name 
+	 		  [WHERE condition(s)]; 
+	 	* WHERE clause is used with:
+	 		- Comparison operators 
+	 			- =, <, >, <=, >=, < >, !=.
+	 			- BETWEEN ... AND, IN, LIKE, IS NULL.
+	 		- Logical operators (AND, OR, NOT operators).

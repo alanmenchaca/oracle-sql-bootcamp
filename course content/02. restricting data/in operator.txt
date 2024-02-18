@@ -1,0 +1,10 @@
+	
+	 ~ Using the IN Operators ~
+	 	* The IN operator is used to retrieve the restricted values in
+	 	  a specified list.
+	 	* Many data types like number, date, character values can be
+	 	  used with the IN operator.
+	 	* The order of the specified values is not important.
+	 		- SELECT employee_id, first_name, last_name, salary, manager_id 
+	 		  	FROM employees 
+	 		  		WHERE employee_id IN (100, 105, 102, 200);

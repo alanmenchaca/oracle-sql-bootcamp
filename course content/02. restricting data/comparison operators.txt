@@ -1,0 +1,8 @@
+	
+	 ~ Using the COMPARISON Operators ~
+	 	* Comparison operators: 
+	 		- =, <, >, <=, >=, < >, !=.
+	 		- BETWEEN ... AND, IN, LIKE, IS NULL.
+	 	* SELECT *|{[DISTINCT] column [alias], ...}
+	 	  FROM table
+	 	  [WHERE logical expression(s)];

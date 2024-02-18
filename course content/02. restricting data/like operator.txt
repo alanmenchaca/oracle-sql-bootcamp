@@ -1,0 +1,14 @@
+	
+	 ~ Using the LIKE Operator ~
+	 	* The LIKE operator are used for searching some texts in
+	 	  string values.
+	 	* The LIKE operator is used to perform wildcard searches
+	 	  and retrieves rows matching a certain character pattern.
+	 		- Percentage Sign (%):
+	 			- Matches any number of characters including 0 or
+	 			  more characters.
+	 		- Underscore (_): 
+	 			- Matches exactly one character.
+	 	* The LIKE operator can also be used without the wildcard
+	 	  characters (%, _). But, it is nonsense because it will be
+	 	  equal to (=) operator and LIKE is slower than (=) operator.

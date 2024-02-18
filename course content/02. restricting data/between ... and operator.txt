@@ -1,0 +1,8 @@
+	
+	 ~ Using the BETWEEN ... AND Operator ~
+	 	* Retrieves data between the specified lower and upper limit.
+	 	* The lower and upper limit values are included.
+	 	* Many data types like number, character values can be restricted
+	 	  with the BETWEEN ... AND operator.
+	 		- SELECT FIRST_NAME, LAST_NAME, SALARY FROM EMPLOYEES
+	 		  WHERE SALARY BETWEEN 10000 AND 12000;

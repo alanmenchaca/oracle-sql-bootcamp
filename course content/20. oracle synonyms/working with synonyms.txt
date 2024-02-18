@@ -1,0 +1,22 @@
+		 	
+	 ~ Creating, Using and Dropping Synonyms ~
+	 	CREATE [OR REPLACE] [PUBLIC] SYONYNM [schema_name.]synonym_name
+	 		FOR [schema_name.]object_name[@db_link];
+
+	 	* To use a synonym created for another user's objects, the user need to have the
+	 	  related object privileges.
+	 	* Synonyms created without the PUBLIC options are considered prvivate synonyms.
+	 	* To create a private synonym in your schema, the CREATE SYNONYM privilege is needed.
+	 	* To create a private synonym in another user's schema, the CREATE ANY SYNONYM
+	 	  privilege is required.
+	 	* We can create synonym for our objects or other schema objects in our schema or
+	 	  in another schema.
+	 	* DBAs or the users having the CREATE PUBLIC SYNONYM privilege can create PUBLIC synonyms.
+	 	
+	 	* A private synonym should be unique among the objects in its schema, and a public
+	 	  synonym should be unique among public synonyms. 
+	 	* Private synonyms have higher precedence than public synonyms.
+	 	* A synonym is used as an alias for the underlying object.
+	 	* We can create synonyms for nonexistent objects and those for which we don't have
+	 	 access privileges at creation time.
+	 		DROP SYNONYM [schema_name].synonym_name[@db_link];

@@ -1,0 +1,16 @@
+		 	
+	 ~ What is a Synonym? ~
+	 	* A synonym is a database object created to give an alternative name to another
+	 	  database object.
+	 	* We can think of synonyms simply as an alias.
+	 	* Advantages of Synonyms:
+	 		- Useful for hiding the identity and location of the related object.
+	 		- Eliminate the need of typing the owner of an object.
+	 		- Useful to simplifying (abbreviating) object names.
+	 			human_resources.employee_locations -> offices
+	 		- Useful for backward compatibility.
+	 		- Helpful in moving the objects between schemas without breaking the
+	 		  existing code.
+	 		- No need for additional privileges for the synonyms.
+	 		- Require no storage in the database other than its definition in the data
+	 		  dictionary views.

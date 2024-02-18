@@ -1,0 +1,12 @@
+		 	
+	 ~ Analyzing The User_Syonyms View ~
+	 	* The USER_SYNONYMS data dictionary view is used to get the properties of the
+	 	  synonyms the user owns.
+	 		- SYNONYM_NAME: Name of the synonym.
+	 		- TABLE_OWNER: Owner of the object referenced by the synonym.
+	 		- TABLE_NAME: Name of the object referenced by the synonym.
+	 		- DB_LINK: Database link referencing remote synonym.
+	 		- ORIGIN_CON_ID: ID of the containing database.
+	 			* 0 -> Non-Container Database
+	 			* 1 -> Root Database
+	 			* ...

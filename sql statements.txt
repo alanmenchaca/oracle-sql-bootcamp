@@ -1,0 +1,40 @@
+	
+	 ~ SQL Statements ~
+		* DML: Data Mainpulation Language
+		These commands are used to retrieve or manipulate data in our tables.
+			- SELECT: Retrieve data from a table.
+			- INSERT: Insert data into the tables.
+			- UPDATE: Modify existing data within a table.
+			- DELETE: Delete rows from a table.
+			- MERGE: It can perform inserts, updates and deletes in one query.
+
+		* DDL: Data Definition Language
+		The commands are used to create, modify and drop any of the database objects.
+			- CREATE: It is used to create a new table or other  database objects
+					  like indexes, views, functions, procedures, triggers, etc.
+			- ALTER: It is used to modify the existing database objects, we can
+					 change the structure of the database objects in many ways,
+					 after we create them.
+			- DROP: It's used to remove the objects from the database, if one
+					object is removed, the data inside that objects is also removed.
+			- RENAME: It's used to rename the database objects, we can change the
+					  name of the database objects, with the rename command.
+			- TRUNCATE: This command removes all records from a table in one step.
+
+		* DCL: Data Control Language
+		  DCL Statements are used to control privileges on the database, whether
+		  we can access to a database objects or create connections, etc.
+			- GRANT: It's used to give a user the privilege to access to any
+					 database object or create sessions, etc.
+			- REVOKE: Withdraws user's access privileges given by using the GRANT
+					  command.
+
+		* TCL: Transaction Control Language
+		  TCL commands allow us to control and manage transactions to maintain the
+		  integrity of the database (we can thing these statements as saving or
+		  canceling the data manipulations).
+			- COMMIT: It's used to make the changes permanent on the database.
+			- ROLLBACK: Restores the database to last commit state (which means.
+			  take the changes back).
+			- SAVEPOINT: It's used to temporarily save a transaction so that we
+			  rollback to that point whenever we need.

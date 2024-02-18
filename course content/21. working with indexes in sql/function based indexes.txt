@@ -1,0 +1,16 @@
+	 
+	 ~ Function-Based Indexes ~
+	 	* In the query bellow, the index will no be used:
+	 	SELECT * FROM employees WHERE UPPER(last_name) = 'KING';
+
+	 	* Normally, to use an index, the indexed columns should be used the way the
+	 	  index was created.
+		* We can create indexed with Oracle's built in function or user-defined functions.
+
+		CREATE INDEX index_name ON table_name (function_name(parameter,[parameter, ...]));
+
+		* Function-based indexes store the results of functions.
+		* If the same function is used in the CREATE INDEX statement as in the WHERE clause,
+		  the query will use the related function-based index.
+		* To create a function-based index, the QUERY REWRITE system privilege is required.
+ 

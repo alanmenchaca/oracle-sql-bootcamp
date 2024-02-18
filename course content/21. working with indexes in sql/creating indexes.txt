@@ -1,0 +1,21 @@
+		 	
+	 ~ Creating Indexes ~
+	 	CREATE [UNIQUE|BITMAP] INDEX index_name ON table_name (column_name_1[column_name_2], ...);
+	 	CREATE INDEX temp_idx ON employees_copy (employee_id);
+	 	
+	 	* The default index type is Non-Unique B-tree Index.
+	 	* We can create index on one or more columns.
+
+	 	CREATE UNIQUE INDEX temp_idx ON employees_copy (employee_id);
+
+	 	* Unique indexes prevent duplicate value entry.
+	 	* A unique B-tree index is created automatically by a primary key or unique
+	 	  constraint creation.
+	 	* There cannot be more than one unique index on the same colum or column list.
+
+	 	CREATE BITMAP INDEX temp_idx ON employees_copy (employee_id);
+
+	 	* Bitamp indexes cannot be unique!
+ 		* There can only be one index on the same set of columns!
+ 		* NULL column values are not indexed in B-tree indexes!
+ 		* B-tree or bitmap indexes can be created on any column.

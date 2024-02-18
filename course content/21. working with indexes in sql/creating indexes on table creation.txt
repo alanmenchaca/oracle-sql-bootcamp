@@ -1,0 +1,30 @@
+		 	
+	 ~ Creating Indexs on Table Creation ~
+	 	* A Unique B-tree Index is created on primary key or unique constraint creation.
+	 	* We can specify names for the indexes created for the primary or unique keys while
+	 	  creating tables.
+	 		
+	 		CREATE TABLE employees_temp (
+	 			employee_id NUMBER(6) PRIMARY KEY USING INDEX 
+	 				(CREATE INDEX temp_idx ON employees_temp(employee_id));
+	 			first_name  VARCHAR2(20),
+	 			last_name   VARCHAR2(25)
+	 		);
+
+	 	* We can add indexes with meaningful names after table creation by using the
+	 	  ALTER TABLE statement.
+
+	 	  	CREATE TABLE temp (
+	 	  		employee_id NUMBER(6),
+	 	  		first_name  VARCHAR2(20),
+	 	  		last_name	VARCHAR2(25),
+	 	  	);
+
+	 	  	CREATE INDEX emp_id_idx ON emp(employee_id);
+
+	 	  	ALTER TABLE emp ADD PRIMARY KEY(employee_id) USING INDEX emp_id_idx;
+
+	 	* We can rename existing indexes by using the ALTER INDEX statement.
+
+	 		ALTER INDEX current_index_name RENAME TO new_index_name;
+	 		

@@ -1,0 +1,12 @@
+		 	
+	 ~ How to Remove (Drop) Indexes? ~
+	 	
+	 	DROP INDEX index_name [ONLINE];
+
+	 	- To remove an index, we need to have the DROP INDEX privilege or be the owner
+	 	  of the index.
+	 	- Indexes cannot be modified.
+	 	- If we drop a table, all the associated indexes are dropped automatically.
+	 	- To allow DML operations while dropping an index, we need to use the ONLINE
+	 	  option.
+	 	- We cannot drop an index associated with a unique or primary key constraint.

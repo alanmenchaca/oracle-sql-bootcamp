@@ -1,0 +1,26 @@
+	 
+	 ~ How to Modify (Alter) Indexes? ~
+	 	* Index structure cannot be modified.
+	 	* To alter an index, the ALTER ANY INDEX system privilege is required.
+	 		ALTER INDEX index_name REBUILD;
+
+	 	* Rebuilding an index makes it USABLE.
+	 	* If a bitmap index is invalid, it cannot be rebuilt.
+	 		ALTER INDEX index_name REBUILD ONLINE;
+
+	 	* The ONLINE option allows DML operations on a table during index modification.
+	 	* Function-based indexes can be enabled or disabled if they are valid.
+	 		ALTER INDEX index_name DISABLE|ENABLED;
+
+	 	* Unusable indexes will be ignored by the server on index usage and maintenance.
+	 		ALTER INDEX index_name UNUSABLE;
+
+	 	* The RENAME clause is used to rename an index.
+	 		ALTER INDEX index_name RENAME TO new_name;
+
+	 	* Compiling an invalid index will make it valid again.
+	 		ALTER INDEX index_name COMPILE;
+
+	 	* An index can be set to VISIBLE or INVISIBLE
+	 		ALTER INDEX index_name VISIBLE|INVISIBLE;
+	 		

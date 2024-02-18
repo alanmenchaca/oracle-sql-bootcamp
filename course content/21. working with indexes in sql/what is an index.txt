@@ -1,0 +1,21 @@
+		 	
+	 ~ What is an Index & What is it Used For? ~
+	 	* A ROWID is the physical location of a row.
+	 	* A ROWID is the fastest way to access a row.
+	 	* ROWIDs cannot be used as primary keys.
+	 	* Indexes store ROWIDs of each row to get these rows faster.
+	 	* Indexes are usually the fastest way to get a subset of rows.
+
+	 	- Indexes are created automatically or manually.
+	 	- Indexes are maintained automatically. 
+	 	- If there is no index for a column, a FULL TABLE SCAN occurs.
+	 	- Indexes are stored separately from the related table.
+	 	- If we drop a table, all the indexes related to this table will also be dropped.
+	 	- Indexes are usually used when we refer to the indexed column in the WHERE clause.
+	 	- We can create indexes for one or more columns.
+
+	 	** Drawbacks of indexes **
+	 		- Indexes occupy disk space.
+	 		- Indexes slow down DML operations on tables.
+	 		- Index structure cannot be modified.
+	  		- We may need to revisit index decisions over time.

@@ -1,0 +1,17 @@
+	 
+	 ~ Multiple Indexes on the Same Columns ~
+	 	* Multiple indexes can be created on the same set of columns if the indexes are
+	 	  of different types.
+	 	* If there are multiple indexes on the same set of columns, only onde index can
+	 	  be visible at the time.
+	 	* An index can be VISIBLE or INVISIBLE.
+	 	* Invisible indexes continue to be maintained, but ignored by the optimizer on
+	 	  query execution.
+	 	* Making an index invisible can be an alternative to dropping and re-creating it,
+	 	  or making it unusable.
+	 	* An index can be made invisible to check its effect on performance.
+	 		- Index maintenance stops when an index becomes unusable.
+	 		- Invisible indexes should be dropped after completing performance tests.
+	 	* Rebuilding an index will make it visible automatically.
+	 	* Index can be created as invisible initially.
+	 	

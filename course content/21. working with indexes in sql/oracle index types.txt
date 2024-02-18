@@ -1,0 +1,53 @@
+		 	
+	 ~ Oracle Index Types ~
+	 	* There are many index types in the Oracle Database such as:
+	 		- B-tree Indexes 
+	 		- Bitmap Indexes
+	 		- Bitmap Join Indexes
+	 		- Function Based Indexes
+	 		- Application Doman Indexes
+
+	 	* B-Tree (Balanced Tree) Indexes
+	 		- The most common index type in OLTP-type databases.
+	 		- The default index type.
+	 		- Can retrieve on or multiple rows.
+	 		- Good at retrieving exact match queries or range searches.
+	 		- Efficient at DML operations.
+	 		- Subtypes of B-TREE Indexes:
+	 			* Index-Organized Tables: Store a table in the same way indexes are stored.
+	 			* Reverse-key Indexes: The bytes of the indexed column values are stored in
+	 			  the index blocks in reverse order.
+	 			* Descending Indexes: The values of the indexed column are stored in descending
+	 			  order in the index.
+	 				CREATE INDEX index_name OM table_name(column_name DESC[ENDING]);
+	 			* B-Tree Cluster Indexes: Used with clustered tables.
+
+	 	* BITMAP Indexes
+	 		- Create bitmpas for each index key to point to multiple rows.
+	 		- Need less storage.
+	 		- Are appropiate if most of the column values are duplicates.
+	 		- Are more costly in terms of index maintenance.
+	 		- Efficient when there are not many DML operations.
+	 		- Are extensively used in data warehouses.
+	 		- Work faster when there are multiple conditions with the AND and OR operators.
+	 		- Can be joined to filter the rows at the index level.
+	 		- Bitmap-join Indexes will speed up the joined queries.
+	 			- A BITMAP join index is a bitmap index for joining 2 or more tables.
+
+	 	* Function-Based Indexes:
+	 		- An index created with a function or expression is considered a function based index.
+
+	 	* Application-Domain Indexes:
+	 		- An application domain index is a customized index specific to an application.
+
+	 	* Index Characteristics
+	 		- Indexes can be created on one or multiple columns.
+	 		- Indexes created on multiple columns are considered Composite Indexes.
+	 		- An index can be unique or non-unique.
+	 		- Indexes can be created manually or automatically.
+	 		- Unique indexes are fastest indexes.
+	 			* Non-unique indexes usually work slower than UNIQUE indexes!
+	 		- Non-Unique index is the default.
+	 		- Bitmap indexes cannot be unique.
+	 		- An index can be USABLE or UNUSABLE.
+	 		- An index can be VISIBLE or INVISIBLE.

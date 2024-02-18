@@ -1,0 +1,20 @@
+	
+	 ~ The ORDER BY Clause ~
+	 	* The ORDER BY clause changes the returning rows' order by any
+	 	  column or alias or the numeric positions of the columns in the
+	 	  SELECTED list.
+	 	* The ORDER BY clause can sort the retrieved rows in ascending (ASC)
+	 	  or descending (DESC) order.
+	 	* If we don't specify anything for the type of the order, the default
+	 	  order is ascending.
+	 		- SELECT column1, column2, ... FROM table_name 
+	 			WHERE condition ORDERB BY column_nam, [column_name], ...;
+	 		- SELECT first_name, last_name, salary FROM employees
+			  	ORDER BY first_name;
+		* The ORDER BY clause can be used with the given alias in the
+		  SELECT statement.
+		* The ORDER BY clause can also be used with the column position in
+		  the SELECT list or the column order in the database.
+		* The ORDER BY can be used with multiple columns.
+		* The ORDER BY doesn't change the actual order of the rows in the table.
+		

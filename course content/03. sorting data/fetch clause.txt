@@ -1,0 +1,36 @@
+	
+	 ~ FETCH Clause ~
+	 	* The FETCH clause is used in conjunction with the SELECT and ORDER BY
+	 	  clauses to limit the rows and retrieve a portion
+	 	  of the returning rows.
+
+	 	  	- [OFFSET rows_to_skip ROW[S]] FETCH [FIRST|NEXT]
+	 	  	  	[row_count | percent PERCENT] ROW[S] [ONLY | WITH TIES];
+	 	  		* OFFSET -> Specifies the number of rows to skip before the row
+	 	  		  limiting starts.
+	 	  		* ROW|ROWS -> Both of them can be used based on the returning
+	 	  		  rows in order to increase the semantic clarity.
+	 	  		* FETCH -> Specifies the number of rows or percentage of rows
+	 	  		  to return.
+	 	  		* FIRST|NEXT -> We can use any of them based on the situation.
+	 	  		* row_count|percent PERCENT -> The row_count to specify the
+	 	  		  number of rows to return, the PERCENT specifies the
+	 	  		  percentage of the total number of selected rows to return.
+	 	  		* ONLY|WITH TIES -> ONLY is used to return exactly the specified
+	 	  		  number of rows or percentage of rows. The WITH TIES returns
+	 	  		  extra rows with the same value as the last row fetched. If we
+	 	  		  specified WITH TIES, then we must specify the order_by_clause.
+	 	  		  If we do not specify the ORDER BY clause, then, no additional
+	 	  		  rows will be returned.
+
+	 	    - SELECT first_name, last_name, salary FROM employees
+			    ORDER BY salary DESC 
+			    OFFSET 1 ROW FETCH FIRST 10 ROWS WITH TIES;
+	 	  	- SELECT order_id, order_total, customer_id FROM orders
+				ORDER BY order_total DESC 
+				OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY; 
+
+	 	  	- SELECT first_name, last_name, salary FROM employees
+    			OFFSET 10 ROWS;	
+			- SELECT first_name, last_name, salary FROM employees
+    			ORDER BY salary DESC FETCH FIRST 5 ROWS ONLY;

@@ -1,0 +1,13 @@
+	
+	 ~ ASC and DESC Operators ~
+	 	* ASC -> Ascending - Increasing
+	 	* DESC -> Descending - Decreasing
+		* Queries can be ordered by columns in ascending or descending
+		  order individually.
+		* Aliases and numeric positions can be used with the ASC and
+		  DESC operators.
+		* NULL values are displayed last in the ascending order.
+			- SELECT column1, column2, ...
+				FROM table-name 
+				WHERE condition
+				ORDER BY column1 DESC, column2 ASC;

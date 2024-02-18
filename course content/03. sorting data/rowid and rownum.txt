@@ -1,0 +1,20 @@
+	
+	 ~ ROWID & ROWNUM ~
+	 	* The ROWID is a unique identifier that contains the physical
+	 	  addres of a row.
+	 	* The ROWID is a unique identity for each record, the ROWID
+	 	  does not change.
+	 		- Oracle automatically generates a unique ROWID at the
+	 		  time of insertion of a row.
+	 		- The fastest way to access a single row is using its ROWID.
+	 		- The ROWID is permanent.
+	 		- The ROWID doesn't change.
+	 	* The ROWNUM is nothing but consecutive logical sequence number
+	      given to the rows fetched from the table.
+	 		- To limit the returning rows in a table, we can use the 
+	 		  ROWNUM pseudo column.
+	 		- The ROWNUM is temporary.
+	 		- If we change the query, the ROWNUM number will refer to 
+	 		  another row.
+	 		- We can think of the ROWNUM values like the row numbers
+	 		  in an Excel Spreadsheet.

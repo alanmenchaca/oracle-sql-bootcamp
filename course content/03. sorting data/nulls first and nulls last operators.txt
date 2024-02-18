@@ -1,0 +1,6 @@
+	
+	 ~ NULLS FIRST and NULLS LAST Operators ~
+	 	* The NULLS FIRST or NULLS LAST operators are used for changing
+	 	  the order of the NULL values.
+	 		- SELECT first_name, last_name, commission_pct c FROM employees 
+	 		  	ORDER BY 1 DESC NULLS LAST, last_name ASC, c NULLS FIRST;

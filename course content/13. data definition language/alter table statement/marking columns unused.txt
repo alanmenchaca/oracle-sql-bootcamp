@@ -1,0 +1,16 @@
+ 	
+	 ~ ALTER TABLE "SET UNUSED" Option ~
+	 	* The SET UNUSED clause is used to mark one or more columns as unused.
+		* As soon as columns are marked as unused, those columns are dropped
+		  logically by becoming invisible and inaccessible.
+		* During the off-peak hours, the unused columns can be dropped physically
+		  as well.
+
+		ALTER TABLE table_name SET UNUSED (column_1[, column_2, ...]);
+		ALTER TABLE table_name SET UNUSED COLUMN column_name;
+
+		* The ONLINE keyword at the end of the SET UNUSED clause can be used to
+		  indicate that DML operations are allowed on the table while marking
+		  columns as unused.
+
+		 ALTER TABLE table_name SET UNUSED (column_1[, column_2, ...]) ONLINE;

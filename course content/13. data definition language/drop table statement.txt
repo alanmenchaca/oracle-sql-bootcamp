@@ -1,0 +1,20 @@
+ 	
+	 ~ DROP TABLE Statement ~
+	 	* The DROP TABLE statement removes an existing table with all its data
+	 	  from the database and moves it to the recycle bin.
+
+	 	DROP TABLE table_name [PURGE];
+
+	 	* The "PURGE" option in the "DROP TABLE" statement in Oracle SQL is used
+	 	  to remove a table and its associated schema objects entirely from the
+	 	  database, including all data and the table structure.
+	 	* After dropping a table, we can restore it for a short time using the
+	 	  FLASHBACK TABLE statement.
+
+	 	FLASHBACK TABLE table_name TO BEFORE DROP;
+
+	 	* Only the creator of the table or any user who has the "DROP ANY TABLE"
+	 	  privilege can drop a table.
+	 	* After dropping a table, all the objects related to that table will also
+	 	  be deleted or become invalid.
+	 	

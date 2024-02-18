@@ -1,0 +1,14 @@
+	
+	 ~ Data Definition Language (DDL) ~
+	 	* Data Definition Language (DDL) commands create, modify and maintain the
+	 	  database objects in the database.
+	 	* The DDL commands in Oracle SQL include:
+	 		- CREATE: Creates database objects in the database.
+	 		- ALTER: Modifies the structure of the database and its objects.
+	 		- DROP: Deletes objects from the database.
+	 		- TRUNCATE: Removes all data from a table, including all space allocated
+	 		  for the removed rows.
+	 		- COMMENT: Adds explanatory comments to the table and its columns.
+			- RENAME: Rename an existing object.
+		* The DLL statements are always auto-commited.
+		

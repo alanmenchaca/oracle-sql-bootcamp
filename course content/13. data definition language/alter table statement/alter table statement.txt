@@ -1,0 +1,69 @@
+ 	
+	 ~ ALTER TABLE Statement ~
+	 	* The ALTER TABLE statement changes the structure of an existing table.
+	 	* With the ALTER TABLE command, you can:
+	 		- Add one or more new columns to a table.
+	 		- Modify the data type of one or more existing columns.
+	 		- Drop one or more columns from a table.
+	 		- Rename a column or a table.
+	 		- Much more...
+
+ 	
+	 ~ ALTER TABLE "ADD" Statement ~
+	 	* We can add one or more new columns to an existing table.
+
+	 	ALTER TABLE table_name
+	 	ADD (column_name_1 datatype [DEFAULT default_value_1] [NULL | NOT NULL],
+	 		 column_name_2 datatype [DEFAULT default_value_2] [NULL | NOT NULL],
+	 		 column_name_3 datatype [DEFAULT default_value_3] [NULL | NOT NULL],
+	 		...);
+
+	 	
+	 	** ADDING A COLUMN TO A TABLE **
+	 	ALTER TABLE employees_copy ADD ssn VARCHAR2(11);
+
+	 	** ADDING MULTIPLE COLUMNS TO A TABLE **
+	 	ALTER TABLE employees_copy
+		ADD (fax_number     VARCHAR2(11),
+		     date_of_birth  DATE,
+		     password       VARCHAR2(10) DEFAULT 'Abc_123@');
+
+
+	 ~ ALTER TABLE "MODIFY" Statement ~
+	 	* We can modify one or more existing column's data type, size, default
+	 	  value and nullability.
+	 	
+	 	ALTER TABLE table_name 
+	 	MODIFY column_name datatype [DEFAULT default_value] [NULL | NOT NULL];
+
+	 	ALTER TABLE table_name 
+	 	MODIFY (column_name_1 datatype [DEFAULT default_value] [NULL | NOT NULL],
+	 			column_name_2 datatype [DEFAULT default_value] [NULL | NOT NULL],
+	 			column_name_3 datatype [DEFAULT default_value] [NULL | NOT NULL]
+	 		    ...);
+		
+		* We can modify a single column of a table.
+		ALTER TABLE employees_copy MODIFY password VARHCAR2(50);
+
+		* We can modify multiple columns of a table at the same time.
+		ALTER TABLE employees_copy
+		MODIFY (employee_id  NUMBER(10),
+				password     VARCHAR2(60) DEFAULT 'abc@123');
+
+		* Setting a default value on an existing column will affect only the new
+		  inserts. The existing rows will not be affected.
+
+
+	 ~ ALTER TABLE "MODIFY" Statement ~
+	 	* The ALTER TABLE DROP statement is used to remove columns that we no longer
+	 	  need from an existing table.
+
+	 	* We can drop a single column of a table.
+	 	ALTER TABLE table_name DROP COLUMN column_name;
+	 	ALTER TABLE employees_copy DROP COLUMN ssn;
+
+	 	* We can drop multiple columns of a table at the same time.
+	 	ALTER TABLE table_name DROP (column_name_1, column_name_2, ...);
+	 	ALTER TABLE employees_copy DROP (fax_number, password);
+
+	 [NOTE: Dropped columns cannot be recovered easily!].

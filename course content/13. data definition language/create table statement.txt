@@ -1,0 +1,23 @@
+ 	
+	 ~ CREATE TABLE Statement ~
+	 	* The CREATE TABLE statement is used to create a new table.
+	 	* To create a table, you must have the CREATE TABLE privilege.
+
+	 	CREATE TABLE schema_name.table_name
+	 	(column_name_1 datatype [DEFAULT default_value] [NULL | NOT NULL],
+	 	 column_name_2 datatype [DEFAULT default_value] [NULL | NOT NULL],
+	 	 column_name_3 datatype [DEFAULT default_value] [NULL | NOT NULL],
+	 	 ...);
+
+	 	* The DESC[RIBE] and INFO[RMATION] commands returns the structure of
+	 	  a table.
+	 	* The DEFAULT keyword allow us to set a default value that will be 
+	 	  inserted instead of NULL values.
+
+		CREATE TABLE my_employees(
+		    employee_id NUMBER(3)	    NOT NULL,
+		    first_name  VARCHAR2(50)    DEFAULT 'No Name',
+		    last_name	VARCHAR2(50),
+		    hire_date	DATE            DEFAULT sysdate NOT NULL
+		);
+		

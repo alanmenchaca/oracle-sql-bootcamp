@@ -1,0 +1,18 @@
+ 	
+	 ~ READ ONLY Tables ~
+	 	* Read-only means allowing users to read, but not modify, data.
+	 	* We need to do maintenance on some tables. During these times, we may
+	 	  want to prevent any DML operations and certain DDL statements that
+	 	  affect the data on those tables against any accidental changes.
+
+	 	* Oracle allow us to create such tables using the "READ-ONLY" feature.
+	 	* The READ ONLY clause is used at the end of the ALTER TABLE syntax to
+	 	  set a table to read-only.
+
+	 	ALTER TABLE table_name READ ONLY;
+
+	 	* To change a read-only table to read-write again, the READ WRITE clause
+	 	  is used at the end of the ALTER TABLE statement.
+
+	 	ALTER TABLE table_name READ WRITE;
+	 

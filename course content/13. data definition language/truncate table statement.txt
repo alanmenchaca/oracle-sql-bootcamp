@@ -1,0 +1,17 @@
+ 	
+	 ~ TRUNCATE TABLE Statement ~
+	 	* The DELETE statement deletes all data row by row whereas TRUNCATE
+	 	  statement deletes all rows from a table more quickly.
+
+	 	TRUNCATE TABLE [schema_name.]table_name;
+
+	 	* The TRUNCATE statement is one of the DDL (Data Definition Language)
+	 	  statements so it will auto-commit changes immediately after removing
+	 	  data.
+	 	* TRUNCATE does not allow rollback.
+	 	* The data deleted using the TRUNCATE statement cannot easily be restored
+	 	  (FLASHBACK) because TRUNCATE does not generate any undo information or
+	 	  log data.
+	 	* The TRUNCATE statement works faster than the DELETE statement.
+	 	* We need to have the "DROP ANY TABLE" privilege to truncate a table.
+	 	

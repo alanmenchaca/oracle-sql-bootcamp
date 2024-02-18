@@ -1,0 +1,15 @@
+ 	
+	 ~ RENAME Statement ~
+	 	* The RENAME statement is used to change the name of an existing
+	 	  column or table.
+	 	* We can change the name of a column.
+	 	ALTER TABLE table_name RENAME COLUMN old_name TO new_name;
+	 	ALTER TABLE employees_copy RENAME COLUMN password TO pass;
+
+	 	* We can change the name of a table.
+	 	RENAME employees_copy TO employees_backup;
+	 	ALTER TABLE employees_copy RENAME TO employees_backup;
+
+	 	* To rename a table or a column, you must be the owner of the table or
+	 	  have the required privileges.
+	 	  

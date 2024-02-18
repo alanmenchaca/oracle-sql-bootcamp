@@ -1,0 +1,26 @@
+ 	
+	 ~ Naming Rules & Naming Conventions in Oracle ~
+	 	* Database object names must follow some standard rules:
+	 		1. They should start with a letter.
+	 		2. Can contain only A-Z, a-z, 0-9, _, $, and # characters.
+	 		3. Can be up to 128 characters in length.
+	 		4. Cannot have the same name as another existing object in the same
+	 		   schema.
+	 		5. Quoted identifiers allow mixed case, but this is not recommended.
+	 		6. Cannot be a reserved word like:
+	 			- SELECT, FROM, UPDATE, DELETE, WHERE, HAVING, etc.
+
+	 	* Naming Conventions:
+	 		1. Table names should be in plural form. (employees, departments, etc.)
+	 		2. If a table name has more than one word, they should be separated by
+	 		   an underscore.
+	 			- user_roles, message_details, etc.
+	 		3. Column names should inlcude the alias of the related table underscore
+	 		   the column name.
+	 		   	- adr_street, usr_first_name, etc.
+	 		4. Column names should be singular.
+	 			- emp_first_name, emp_last_name, etc.
+	 		5. The primary key column names should end with "_ID".
+	 			- usr_id, adr_id, emp_id, etc.
+	 		6. The logical aliases of both tables should be used while naming a
+	 		   foreign key column.

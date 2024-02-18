@@ -1,0 +1,24 @@
+ 	
+	 ~ COMMENT Statement ~
+	 	* Oracle provides the COMMENT statement to add an explanation to a
+	 	  table or a column.
+	 	* We can add a comment to a column of a table.
+
+	 	COMMENT ON COLUMN employees.job_id 
+	 		IS 'This column stores abbreviations of job titles.';
+
+	 	* We can add a comment to a table itself.
+
+	 	COMMENT ON TABLE employees
+	 		IS 'This table stores all employee data of the company.'
+
+	 	* We cannot directly drop a comment, instead, we create a new comment
+	 	  with no text.
+
+	 	COMMENT ON COLUMN employees_copy.job_id IS '';
+	 	COMMENT ON TABLE employees_copy IS '';
+
+	 	* We can query the comments from the views: 
+	 		- user_tab_comments
+	 		- user_col_comments
+	 	

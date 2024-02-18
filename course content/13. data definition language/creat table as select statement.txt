@@ -1,0 +1,44 @@
+ 	
+	 ~ CREATE TABLE AS SELECT Statement (CTAS) ~
+	 	* A table can be created using queries and populated with the rows
+	 	  returned by the specified query.
+	 	CREATE TABLE table_name[(column_1, column_2, ...)] AS select_query;
+
+
+	 	* A table can be copied with all its table structure and its data.
+	 	CREATE TABLE employees_copy AS SELECT * FROM employees;
+
+
+	 	* A table's structure can be copied without any data.
+		CREATE TABLE employees_copy AS (SELECT * FROM employees WHERE 1=2);
+
+
+		* A table can be created by copying some specific data from another
+		  table.
+		CREATE TABLE employees_copy
+		AS (SELECT * FROM employees WHERE job_id = 'IT_PROG');
+
+
+		* A table can be created from another table, using only some of the
+		  columns.
+		CREATE TABLE employees_copy
+		AS SELECT first_name, last_name, salary FROM employees;
+
+
+		* Column names can be defined differently from the SELECT list while
+		  creating a table.
+		CREATE TABLE employees_copy
+		AS SELECT first_name f_name, last_name l_name, salary FROM employees;
+
+		CREATE TABLE employees_copy(name, surname, annual_salary)
+		AS SELECT first_name, last_name, (salary * 12) FROM employees;
+
+
+		* The number of specified columns must match with the number of columns
+		  in the SELECT list.
+		CREATE TABLE employees_copy(name, surname)
+		AS SELECT first_name, last_name, (salary * 12) FROM employees;
+
+
+		Important: While creating a table from a SELECT query, the only
+		constraints that are inherited are the NOT NULL constraints.

@@ -1,0 +1,31 @@
+ 	
+	 ~ PRIMARY KEY Constraint ~
+	 	* A PRIMARY KEY is a column or a combination of columns in a table that uniquely
+	 	  identifies each row in a table.
+	 	* A PRIMARY KEY constraint is the combination of a NOT NULL and a UNIQUE constraint.
+	 	* There can only be one primary key on a table.
+	 	* We can think of a primary key as the unique ID of each row in a table.
+	 	* The Oracle Server creates a UNIQUE index when creating a primary key.
+	 	* The NOT NULL constraint is automatically created on the related column(s) when
+	 	  creating a primary key.
+	 	* There are 2 types of primary key: 
+	 		- Simple Primary Key (single-column).
+	 		- Composite Primary Key (multiple columns).
+
+	 		CREATE TABLE managers (
+	 			-- column level primary key
+	 			manager_id		NUMBER CONSTRAINT PK_MANAGERS PRIMARY KEY,
+	 			first_name		VARCHAR2(50),
+	 			last_name		VARCHAR2(50)
+	 		);
+
+	 		CREATE TABLE managers (
+	 			manager_id		NUMBER,
+	 			first_name		VARCHAR2(50),
+	 			last_name		VARCHAR2(50),
+	 			-- table level primary key
+	 			CONSTRAINT PK_MANAGERS PRIMARY KEY(manager_id)
+	 		);
+
+	 		- There is no difference in functionality between table level and column level
+	 		  primary key constraints.

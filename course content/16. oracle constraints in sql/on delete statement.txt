@@ -1,0 +1,15 @@
+ 	
+	 ~ "ON DELETE CASCADE" | "ON DELETE SET NULL" Options ~
+	 	* The ON DELETE CASCADE clause deletes dependent rows in the child table when
+	 	  a related row in the parent table is deleted.
+	 	* The ON DELETE SET NULL clause updates dependent rows in the child table to
+	 	  NULL when a related row in the parent table is deleted.
+	 		CREATE TABLE managers (
+	 			manager_id	  NUMBER CONSTRAINT mgr_id_pk PRIMARY KEY,
+	 			first_name	  VARCHAR2(50),
+	 			last_name	  VARCHAR2(50),
+	 			department_id NUMBER,
+	 			CONSTRAINT mgr_emp_fk FOREIGN KEY (manager_id)
+	 				REFERENCES employees (employee_id) [ON DELETE CASCADE | ON DELETE SET NULL]
+	 		);
+	 		

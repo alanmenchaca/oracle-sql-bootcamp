@@ -1,0 +1,32 @@
+ 	
+	 ~ FOREIGN KEY Constraint ~
+	 	* A foreign key is a column or a combination of columns used to enforce relationship
+	 	  between a parent table and a child table.
+	 	* The relationship is established between the parent table's primary/unique key and
+	 	  a column or set of columns in the child table.
+	 	* The Foreign Key constraint is also known as the Referential Integrity constraint.
+	 	* A referenced record must exist in the parent table before we can insert a related
+	 	  record into the child table.
+	 	* The Foreign Key constraints can be defined at the column or table level.
+	 	* There are 2 types of foreign keys constraints which are:
+	 		- Simple Constraint
+	 		- Composite Foreign Key Constraint
+	 	* Composite Foreing Keys have to be created at the table-level.
+	 	* The Keywords REFERENCES is used to specify the table name and column name to be
+	 	  referenced in the parent table.
+
+	 		CREATE TABLE managers (
+	 			manager_id	  NUMBER CONSTRAINT mgr_id_pk PRIMARY KEY,
+	 			first_name	  VARCHAR2(50),
+	 			last_name	  VARCHAR2(50),
+	 			-- foreign key at column level
+	 			department_id NUMBER CONSTRAINT mng_dept_id_fk 
+	 											REFERENCES departments(department_id),
+	 			-- foreign key at table level
+	 			CONSTRAINT mgr_emp_fk FOREIGN KEY (manager_id)
+	 											REFERENCES employees(employee_id);
+	 		);
+
+	 	* We cannot set child records to any value other than the parent table has! But
+	 	  the NULL value is an exception.
+	 	  

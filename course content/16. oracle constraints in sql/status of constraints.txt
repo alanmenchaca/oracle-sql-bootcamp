@@ -1,0 +1,30 @@
+	 	
+	 ~ Status of Constraints ~
+	 	* The ENABLE keywords ensures that all existing and new data must meet the
+	 	  constraint conditions.
+	 	* The DISABLE keyword allow us to enter new values whether they meet the
+	 	  constraint conditions or not.
+	 	* VALIDATE or NOVALIDATE can also be used with ENABLE and DISABLE for configuring
+	 	  exisiting or future data validation.
+	 		- The VALIDATE keyword ensures that the existing data must conform to the
+	 		  constraint conditions.
+	 		- The NOVALIDATE keyword is used to suspend the checking of existing rows
+	 		  for constraint violations.
+
+	 	* A constraint can have four states below:
+	 		1. ENABLE VALIDATE: This is the default for the ENABLE clause. All the existing
+	 		   rows are checked for whether they conform to the constraint rules, plus, all
+	 		   future rows that will be added or modified will be checked while making inserts
+	 		   or updates.
+	 			- ENABLE = ENABLE VALIDATE
+	 		2. ENABLE NOVALIDATE: The existing rows will not be checked. Only the new rows will
+	 		   be checked.
+	 		3. DISABLE VALIDATE: The constraint is disabled, but it remains valid. No DML
+	 		   operations are allowed on the table because the future changes will not be
+	 		   validated.
+	 		4. DISABLE NOVALIDATE: This is the default for the DISABLE clause. No checks are
+	 		   performed on existing and future data.
+	 			- DISABLE = DISABLE NOVALIDATE
+
+	 		ALTER TABLE employees_emp ENABLE NOVALIDATE CONSTRAINT emp_tmp_email_uk;
+	 		ALTER TABLE employees_emp DISABLE VALIDATE CONSTRAINT emp_tmp_email_uk;

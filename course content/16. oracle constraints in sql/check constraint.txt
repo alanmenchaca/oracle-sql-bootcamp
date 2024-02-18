@@ -1,0 +1,18 @@
+ 	
+	 ~ CHECK Constraint ~
+	 	* A CHECK constraint ensures a column or a group of columns meets a specific
+	 	  condition.
+	 	* We can use check constraints in arithmetic operations or conditional operations.
+	 	* We cannot create check constraints referencing another table.
+	 	* A CHECK constraint can be created at the column-level or table-level.
+	 	* A table, even a single column, can have more than one check contraint on it.
+	 		CREATE TABLE managers (
+	 			manager_id		NUMBER CONSTRAINT mgr_if_pk PRIMARY KEY,
+	 			first_name		VARCHAR2(50),
+	 			last_name		VARCHAR2(50),
+	 			department_id	NUMBER CHECK (department_id IN (10, 20, 30, 40)),
+	 			salary			NUMBER,
+	 			email			VARCHAR(11),
+	 			CONSTRAINT mgr_salary_check CHECK (salary > 0 AND salary < 100000)
+	 		);
+	 		

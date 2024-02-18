@@ -1,0 +1,15 @@
+ 	
+	 ~ NOT NULL Constraint ~
+	 	* NOT NULL constraint prevent the insertion of NULL values into a column.
+	 	* NOT NULL constraints can only be created at the column-level.
+
+	 		CREATE TABLE managers (
+	 			manager_id	  NUMBER NOT NULL, -- column level constraint
+	 			first_name	  VARCHAR2(50), 
+	 			last_name	  VARCHAR2(50) CONSTRAINT lname_not_null NOT NULL,
+	 			department_id NUMBER NOT NULL  -- column level constraint
+	 		);
+		
+		* NOT NULL constraint are tipically used in the column definition of the
+		  CREATE TABLE statement.
+		

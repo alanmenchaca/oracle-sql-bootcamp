@@ -1,0 +1,11 @@
+ 	
+	 ~ Cascading Constraints ~
+	 	* When we drop a column, the NOT NULL, PRIMARY KEY and UNIQUE constraints are dropped.
+	 		- If a column is used by a foreign key constraint on another table, then, we cannot
+	 	  	  drop this column directly. The Oracle Server will return an error.
+	 	* If we use the CASCADE CONSTRAINTS clause while dropping a column, all the constraints
+	 	  referring to that column's PRIMARY and UNIQUE keys are dropped.
+	 		ALTER TABLE departments_copy DROP COLUMN department_id CASCADE CONSTRAINTS;
+
+	 	* If there is a multi-column constraint, we need to use the CASCADE CONSTRAINTS clause
+	 	  to drop this column. Otherwise, we will get an error.

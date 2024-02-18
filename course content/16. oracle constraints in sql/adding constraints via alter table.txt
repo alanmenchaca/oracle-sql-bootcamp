@@ -1,0 +1,25 @@
+ 	
+	 ~ Adding Constraints via ALTER TABLE ~
+	 	* To add, drop, enable, or disable a constraint, we use ALTER TABLE statements.
+	 		ALTER TABLE table_name
+	 		ADD [CONSTRAINT constraint_name] CONSTRAINT_TYPE (column_name, ...);
+
+	 	* To add a NOT NULL CONSTRAINT, we use the ALTER TABLE MODIFY COLUMN clause.
+	 		- The table must be empty or all the values of the NOT NULL column must 
+	 		  have a value.
+	 	* We cannot modify a constraint's structure. To do that we need to drop and
+	 	  re-create the constraint.
+	 	* Specifying a constraint name is optional.
+
+	 		- With constraint:
+	 		ALTER TABLE employees_copy 
+	 		ADD CONSTRAINT temp_cons UNIQUE (employee_id);
+
+	 		ALTER TABLE employees_copy
+	 		ADD CONSTRAINT emp_cpy_emp_id_pk PRIMARY KEY (employee_id);
+
+	 		- without constraint:
+	 		ALTER TABLE employees_copy ADD UNIQUE(employee_id);
+
+	 	NOTE: Existing rows shouldn't violate the constraint!
+	 	

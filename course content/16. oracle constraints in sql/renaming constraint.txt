@@ -1,0 +1,10 @@
+	 	
+	 ~ Renaming Constraints ~
+	 	* Existing constraints can be renamed.
+	 	* The ALTER TABLE ... RENAME CONSTRAINT statement is used to rename an existing
+	 	  constraint of a table.
+	 	* While renaming an existing constraint, the new name must not conflict with any
+	 	  of the existing objects in our schema.
+	 		[Every Object must have a unique name in our schema].
+	 		ALTER TABLE employees_copy RENAME CONSTRAINT SYS_C0010512 TO PHONE_NN;
+	 	

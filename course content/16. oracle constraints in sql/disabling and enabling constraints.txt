@@ -1,0 +1,25 @@
+	 	
+	 ~ Disabling Constraints ~
+	 	* We use ALTER TABLE statements to disable and enable constraints.
+	 	* A constraint that is disabled does not enforce its restriction on the DML operation
+	 	  until it is re-enabled.
+	 	* We cannot directly disable a constraint if there is one or more foreign keys
+	 	  referencing this constraint.
+	 	* We can use the CASCADE option to disable a constraint and all the dependent constraints.
+	 	* When we disable a unique or a primary key constraint, the Oracle Server will remove
+	 	  the unique indexes.
+	 		ALTER TABLE employees_temp DISABLE CONSTRAINT SYS_C0010502;
+	 		ALTER TABLE employees_temp DISABLE CONSTRAINT SYS_C0010502 CASCADE;
+
+	 	
+	 ~ Enabling Constraints ~
+	 	* Disabled constraints can be enabled using the ENABLE CONSTRAINT keywords.
+	 	* Even if we enable a disabled constraint, referencing foreign keys disabled
+	 	  with the CASCADE option will remain disabled.
+	 	* Disabled foreign keys must be explicitly enabled because there is no
+	 	  ENABLE-CASCADE option.
+	 	* When we enable a unique or a primary key constraint, a unique index is 
+	 	  automatically created by Oracle Server.
+	 	* To enable a constraint, all the data in the column or table must satisfy the
+	 	  constraint rules.
+	 		ALTER TABLE employees_copy ENABLE CONSTRAINT SYS_C0010502;

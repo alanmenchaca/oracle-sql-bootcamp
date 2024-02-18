@@ -1,0 +1,16 @@
+ 	
+	 ~ Removing Constraints ~
+	 	* We use the ALTER TABLE statement to remove a constraint.
+	 		ALTER TABLE table_name DROP CONSTRAINT constraint_name;
+
+	 	* While dropping a PRIMARY KEY constraint, we can use the CASCADE option to
+	 	  drop all the associated FOREIGN KEY constraints.
+	 		ALTER TABLE employees_copy DROP CONSTRAINT emp_cpy_emp_id_pk CASCADE;
+	 		ALTER TABLE employees_copy DROP PRIMARY KEY CASCADE;
+
+	 	* We can use the ONLINE keyword to allow DML operations while dropping 
+	 	  constraints.
+	 		ALTER TABLE employees_copy DROP CONSTRAINT emp_cpy_emp_id_pk ONLINE;
+
+	 	* If there is a multi-column constraint, we need to use the CASCADE CONSTRAINTS
+	 	  clause to drop this column. Otherwise, we will get an error.

@@ -1,0 +1,24 @@
+ 	
+	 ~ UNIQUE Constraint ~
+	 	* A UNIQUE constraint ensures the uniqueness of a column or a set of columns which
+	 	  means no duplicate values will be inserted.
+	 	* A UNIQUE columns or a set of columns where the combination must be unique can have
+	 	  multiple null values, unless you also define NOT NULL constraints for these columns.
+	 	* UNIQUE constaints based on multiple columns are called Composite Unique Keys.
+	 	* A composite unique constraint can contain a maximum of 32 columns.
+	 	* UNIQUE constraints can be defined at the column-level or table-level.
+	 	* Composite Unique Keys can only be created at the table-level.
+	 	* The Oracle Server creates a unique index implicitly on unique key creation.
+
+	 	Let's create some unique constraints in different ways.
+	 		CREATE TABLE managers(
+	 			-- column level constraints
+	 			employee_id		NUMBER,
+	 			first_name		VARCHAR2(50) UNIQUE,
+	 			last_name		VARCHAR2(50) CONSTRAINT lname_uk UNIQUE,
+	 			department_id	NUMBER NOT NULL,
+	 			phone_number 	VARCHAR2(11) UNIQUE NOT NULL,
+	 			-- table level constraints
+	 			CONSTRAINT department_id UNIQUE(department_id),
+	 			CONSTRAINT composite_uk UNIQUE(employee_id, first_name, last_name),
+	 		);

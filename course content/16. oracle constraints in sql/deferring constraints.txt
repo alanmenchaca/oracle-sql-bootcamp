@@ -1,0 +1,35 @@
+	 	
+	 ~ Deferring Constraints ~
+	 	* Constraints have 2 deferring states which are DEFERRABLE and NOT DEFERRABLE.
+	 		1. DEFERRABLE: Allow us the option of postponing enforcement of constraints
+	 		   to the end of a transaction.
+	 		   A deferrable constraint can be created in one of two modes:
+	 		   	a) INITIALLY IMMEDIATE (DEFAULT): Specified that the constraint are checked
+	 		       for conformance at the end of each query execution.
+	 		    b) INITIALLY DEFERRED: Postpones constraint enforcement until the end of the
+	 		       transaction (commit).
+	 		2. NOT DEFERRABLE (DEFAULT): Indicates the enforcement of the constraint must
+	 		   always be done immediately as each statement is executed.
+
+	 		If we want to alter a constraint or all the constraints in a session to DEFERRED,
+	 		the NOT DEFFERABLE constraints will not change the DEFERRED.
+	 		[We shouldn't make the constraints deferrable unless we really need to!]
+
+	 		ALTER TABLE table_name 
+	 		ADD CONSTRAINT constraint_name PRIMARY KEY(column_name) DEFERRABLE INITIALLY DEFERRED;
+
+	 		*** CURRENT TRAINSACTION ***
+		 		SET CONSTRAINT constraint_name IMMEDIATE | DEFFERED;
+		 		SET CONSTRAINT constraint_name, constraint_name_2, ... IMMEDIATE | DEFFERED;
+		 		SET CONSTRAINTS ALL IMMEDIATE | DEFERR ED;
+
+		 	ALTER SESSION SET CONSTRAINTS = IMMEDIATE | DEFERRED;
+
+		 	* A table can have multiple constraints with different deffering options.
+		 		CREATE TABLE table_name(
+		 			col_1 NUMBER(10)	PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
+		 			col_1 VARCHAR2(100) UNIQUE DEFERRABLE INITIALLY DEFERRED,
+		 			col_1 VARCHAR2(100) NOT NULL NOT DEFERRABLE
+		 		);
+		 	* Any integrity constraint (PRIMARY KEYs, FOREIGN KEYs and CHECK constraints) can
+		 	  have any deferring status.

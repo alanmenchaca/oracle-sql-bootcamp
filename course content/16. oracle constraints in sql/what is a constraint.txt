@@ -1,0 +1,37 @@
+ 	
+	 ~ What is a Constraint? ~
+	 	* Constraints restrict data entry (insert, update, delete) and prevent invalid entries.
+	 		- Ensure Data Accuracy
+	 		- Ensure Data Reliability
+	 	* Constraints prevent dropping dependent tables.
+	 	* Constraints ensure data consistency and data integrity in the database.
+	 	* Constraints increase the control of the user over the data.
+	 	* There are 5 types of constraints:
+	 		1. NOT NULL Constraint
+	 		2. UNIQUE Constraint
+	 		3. PRIMARY KEY Constraint
+	 		4. FOREIGN KEY Constraint
+	 		5. CHECK Constraint
+
+	 	* We can add constraints while creating a table or we can add them later on.
+	 	* Constraints can be at column-level or table-level.
+	 	* The functionality of the table and column level constraints is the same.
+	 	* By default, auto-generated constraint names start with 'SYS_C'.
+	 	* Constraint names must be unique to the schema.
+
+	 		CREATE TABLE managers (
+	 			employee_id		NUMBER [CONSTRAINT constraint_name] CONSTRAINT TYPE,
+	 			first_name		VARCHAR2(50),
+	 			last_name 		VARCHAR2(50),
+	 			department_id	NUMBER,
+	 			[CONSTRAINT constraint_name] CONSTRAINT_TYPE (column_name_1, ...)
+	 		);
+
+	 		CREATE TABLE managers (
+	 			employee_id		NUMBER [CONSTRAINT constraint_name] CONSTRAINT TYPE,
+	 			first_name		VARCHAR2(50),
+	 			last_name 		VARCHAR2(50) [CONSTRAINT constraint_name] CONSTRAINT TYPE,
+	 			department_id	NUMBER [CONSTRAINT constraint_name] CONSTRAINT TYPE,
+	 			[CONSTRAINT constraint_name] CONSTRAINT_TYPE (column_name_1, ...)
+	 			[CONSTRAINT constraint_name] CONSTRAINT_TYPE (column_name_1, ...)
+	 		);

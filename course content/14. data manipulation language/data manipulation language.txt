@@ -1,0 +1,11 @@
+ 	
+	 ~ TRUNCATE TABLE Statement ~
+	 	* DML is used to add, update, and delete data.
+	 	* The DML statements are: INSERT, UPDATE, DELETE and MERGE.
+	 	* A collection of DML statements is called a transaction.
+	 		- DML statements and transactions are closely connected and
+	 		  affect each other.
+	 	* A transaction starts with the first execution of a DML statement
+	 	  and finishes with a commit or rollback.
+	 	* Transactions are used for data integrity, security & consistency.
+	 		- Online Banking.

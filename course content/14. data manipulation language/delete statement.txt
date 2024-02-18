@@ -1,0 +1,18 @@
+ 	
+	 ~ DELETE Statement ~
+	 	* The DELETE statement is used to delete one or more rows from a table.
+	 		DELETE [FROM] table [WHERE condition];
+
+	 	* We can delete all of the rows in a table.
+	 		DELETE [FROM] table;
+
+	 	* We can delete specific rows of a table.
+	 		DELETE [FROM] employees_copy
+	 		WHERE job_id = 'IT_PROG';
+
+	 	* We can delete rows based on a subquery.
+	 		DELETE [FROM] employees_copy
+	 		WHERE department_id IN
+	 					(SELECT department_id
+	 					FROM departments
+	 					WHERE UPPER(department_name) LIKE '%SALES%');

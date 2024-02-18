@@ -1,0 +1,28 @@
+ 	
+	 ~ UPDATE Statement ~
+	 	* We use UPDATE statement to modify existing rows in a table.
+	 		UPDATE table
+	 		SET column = value [, column_2 = value, ...]
+	 		[WHERE condition(s)];
+
+	 	* We can update all of the values in one column of a table in one step.
+	 		UPDATE employees_copy SET salary = 50000;
+
+	 	* We can update only specific rows in a column of a table using the WHERE clause.
+	 		UPDATE employees_copy SET salary = 50000 WHERE job_id = 'IT_PROG';
+
+	 	* We can update multiple columns of a table in an UPDATE statement.
+	 		UPDATE employees_copy
+	 			SET salary = 50000, department_id = null
+	 		WHERE job_id = 'IT_PROG';
+
+	 	* We can update one or more columns of a table using a subquery.
+	 		UPDATE employees_copy
+	 		SET (salary, commission_pct) = (SELECT MAX(salary), MAX(commission_pct)
+	 										FROM employees)
+	 		WHERE job_id = 'IT_PROG';
+
+	 	* Subqueries can also be used in the WHERE clause of an UPDATE statement.
+	 		UPDATE employees_copy
+	 			SET salary	= 100000
+	 		WHERE hire_date = (SELECT MAX(hire_date) FROM employees);

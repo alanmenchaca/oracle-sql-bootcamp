@@ -1,0 +1,41 @@
+ 	
+	 ~ MERGE Statement ~
+	 	* The MERGE statement is used to INSERT new records, UPDATE or DELETE existing
+	 	  ones depending on the specified conditions at the same time.
+	 	* The MERGE statement is optimized for merging sets of data.
+
+	 		MERGE INTO target_table target_alias
+	 		USING(source table|view|subquery) source_alias
+	 		ON (join_condition)
+	 		WHEN MATCHED THEN
+	 			UPDATE SET
+	 				column_name_1 = value_1,
+	 				column_name_2 = value_2,
+	 				...
+	 				[WHERE <update condition>]
+	 			[DELETE WHERE <delete condition>]
+	 		WHEN NO MATCHED THEN
+	 			INSERT (columns) VALUES (values)
+	 			[WHERE <insert condtions>];
+
+	 		MERGE INTO employees_copy c
+			USING employees e
+			ON (c.employee_id = e.employee_id)
+			WHEN MATCHED THEN
+			    UPDATE SET c.first_name = e.first_name,
+			               c.last_name  = e.last_name,
+			               c.department_id  = e.department_id,
+			               c.job_id  = e.job_id,
+			               c.salary  = e.salary
+			    DELETE WHERE department_id IS NULL
+			WHEN NOT MATCHED THEN
+			    INSERT VALUES(e.employee_id, e.first_name, e.last_name, e.email,
+			                  e.phone_number, e.hire_date,  e.job_id, e.salary,
+			                  e.commission_pct, e.manager_id, e.department_id);
+
+		* Using MERGE statements reduces table scans.
+		* In order to execute the MERGE statement, you must have the related privileges.
+			- INSERT
+			- UPDATE
+			- DELETE
+			

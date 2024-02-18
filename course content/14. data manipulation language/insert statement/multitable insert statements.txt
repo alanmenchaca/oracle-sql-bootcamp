@@ -1,0 +1,17 @@
+
+	 ~ Multitable Insert Statements ~
+	 	* Multiple rows can be inserted into a table or multiple tables by using only
+	 	  one SQL statement instead of writing several INSERT statements.
+		* The INSERT ALL statement is used to insert multiple rows into a table or
+		  multiple tables.
+		* Multitable insert statements increase performance and save time.
+		* If you don't use multi-inserts, inserting lots of rows may take considerable
+		  time as each INSERT statement is processed individually.
+		* Multitable inserts are generally used in data warehousing (DWH).
+
+		-- MULTITABLE INSERT STATEMENT TYPES -- 
+			* Unconditional Insert Statements
+			* Conditional Insert Statements
+				- Conditional INSERT ALL Statements
+				- Conditional INSERT FIRST Statements
+		

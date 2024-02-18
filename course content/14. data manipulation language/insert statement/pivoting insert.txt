@@ -1,0 +1,25 @@
+ 	
+	 ~ Pivoting INSERT ~
+	 	* Pivoting insert is used for converting non-relational data to a relational
+	 	  format and inserting it into a relational table.
+	 	* An Unconditional INSERT ALL statement can also be used for pivoting data.
+
+		 	INSERT ALL
+		 		INTO emp_sales_normalized VALUES(employee_id, week_id, sales_mon, 'MON')
+		 		INTO emp_sales_normalized VALUES(employee_id, week_id, sales_tue, 'TUE')
+		 		INTO emp_sales_normalized VALUES(employee_id, week_id, sales_wed, 'WED')
+		 		INTO emp_sales_normalized VALUES(employee_id, week_id, sales_thu, 'THU')
+		 		INTO emp_sales_normalized VALUES(employee_id, week_id, sales_fri, 'FRI')
+	 		SELECT * FROM emp_sales;
+
+	 	* The order of execution is not guaranteed in the INSERT ALL statements.
+
+
+	 	[Multitable Insert Statements RESTRICTIONS]
+	 		- Multitable Insert Statements can only be used on tables, no views or
+	 		  materialized views!
+	 		- They cannot be used to insert data into remote tables!
+	 		- The number of columns in all the INSERT INTO clauses must not exceed 999!
+	 		- A TABLE collection expression cannot be used in a multitable insert statement.
+	 		- The subquery of the multitable insert statement cannot use a sequence.
+	 		

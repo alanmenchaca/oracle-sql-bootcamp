@@ -1,0 +1,23 @@
+ 	
+	 ~ SAVEPOINT Statement ~
+	 	* For longer transactions, savepoint are quite useful as they divide longer
+	 	  transactions into samller parts and mark certain points of a transaction
+	 	  as checkpoints.
+		* The SAVEPOINT statement saves the current state of a transaction and we
+		  can roll back to that state.
+		* We can create as many savepoints as we want using SAVEPOINT statements.
+			SAVEPOINT name;
+
+			- Transaction: 
+				1. DML -> SAVEPOINT A
+				2. DML -> SAVEPOINT B
+				3. DML -> SAVEPOINT C
+				4. DML -> SAVEPOINT D
+
+		* After rollback to an earlier savepoint, the subsequent savepoints will be
+		  deleted, and only the previous one will remain.
+			- For example, if we roll back to B, all DMLs and savepoints performed
+		* Using a regular rollback statement without a SAVEPOINT will delete all
+		  savepoints.
+		* A commit will delete all savepoints.
+		* Savepoint names must be distinct!

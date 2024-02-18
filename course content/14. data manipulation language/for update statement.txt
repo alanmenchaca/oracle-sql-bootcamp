@@ -1,0 +1,43 @@
+ 	
+	 ~ FOR UPDATE Statement ~
+	 	* The FOR UPDATE statement locks all the rows returned by the query.
+	 	* The rows that are already locked by another session will not be able
+	 	  to be locked using the FOR UPDATE statement.
+	 	* To release the locked rows, a COMMIT or ROLLBACK must be issued in the
+	 	  session holding the lock.
+	 	* The NOWAIT keywords tells Oracle not to wait if the rows have already
+	 	  been locked by another user.
+	 	* The SKIP LOCKED keywords tells Oracle to skip the locked rows and operate
+	 	  on the available ones.
+	 		SELECT * FROM employees WHERE job_id = 'IT_PROG'
+	 			FOR UPDATE [NOWAIT|WAIT sec|SKIP LOCKED];
+
+	 	* We can use the FOR UPDATE clause in a query including joins.
+	 	* With joins, the rows from all the joined tables are locked by default.
+	 		SELECT first_name, last_name, salary
+			FROM employees_copy INNER JOIN departments d
+			USING(department_id)
+			WHERE location_id = 1400 FOR UPDATE;
+
+		* The OF clause is used to indicate which tables will be locked.
+			FOR UPDATE OF column(s);
+
+		* We can specify more than one column, separating them by commas.
+			SELECT query ... FOR UPDATE OF column_1, column_2;
+
+			SELECT first_name, last_name, salary
+			FROM employees_copy INNER JOIN departments d 
+			USING(department_id)
+			WHERE location_id = 1400
+			FOR UPDATE OF first_name, last_name;
+
+			- The FOR UPDATE clause is applied to the result set of the query
+			  based on the specified conditions in the WHERE clause.
+			- Only the rows of the table which have the first_name and last_name
+			  columns will be locked.
+			- We cannot lock a specific column in a table.
+
+		* The WAIT option is used to specify how many records to wait for the
+		  locked rows.
+		  	FOR UPDATE WAIT 10;
+		  	

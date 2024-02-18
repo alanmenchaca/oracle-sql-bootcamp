@@ -1,0 +1,60 @@
+
+	 ~ Multitable Insert Statements ~
+	 [CONDITIONAL INSERT ALL Statement]
+
+	 	* Conditional INSERT ALL statements allow us to insert rows into the related
+	 	  tables in one step based on the specified conditions.
+	 	* Conditions are specified between the WHEN-THEN keywords.
+
+		 	INSERT ALL
+		 		WHEN condition_1 THEN
+		 			INTO insert_statement_1;
+		 			INTO insert_statement_2;
+		 			...
+		 		WHEN condition_2 THEN
+		 			INTO insert_statement_3;
+		 			...
+		 		ELSE
+		 			INTO insert_statement_n;
+		 	subquery;
+
+	 	* Conditions are specified between the WHEN-THEN keywords.
+	 	* Conditional expressions, even a subquery, which evaluate to true or
+	 	  false can be written between the WHEN-THEN keywords.
+	 	* In conditional INSERT ALL statements, all WHEN conditions are evaluated
+	 	  regardless of of the results of any other WHEN clause.
+
+	 		CREATE TABLE employees_history AS
+		    	SELECT employee_id, first_name, last_name, hire_date
+		    	FROM employees WHERE 1=2;
+
+			CREATE TABLE salary_history AS
+			    SELECT employee_id, 1234 AS year, 12 AS month, salary, commission_pct
+			    FROM employees WHERE 1=2;
+
+			CREATE TABLE it_programmers AS 
+			    SELECT employee_id, first_name, last_name, hire_date 
+			    FROM employees WHERE 1=2;
+			    
+			CREATE TABLE working_in_the_us AS 
+			    SELECT employee_id, first_name, last_name, hire_date 
+			    FROM employees WHERE 1=2;
+
+			INSERT ALL
+			    WHEN hire_date > sysdate-365 THEN
+			        INTO employees_history VALUES(employee_id, first_name, last_name, hire_date)
+			        INTO salary_history VALUES(employee_id, 
+			                                   EXTRACT(year FROM sysdate),
+			                                   EXTRACT(month FROM sysdate),
+			                                   salary, commission_pct)
+			    WHEN job_id = 'IT_PROG' THEN
+			        INTO it_programmers VALUES(employee_id, first_name, last_name, hire_date)
+			    WHEN department_id IN
+			                    (SELECT department_id 
+			                     FROM departments 
+			                     WHERE location_id IN 
+			                                (SELECT location_id 
+			                                 FROM locations 
+			                                 WHERE country_id = 'US')) THEN
+			        INTO working_in_the_us VALUES(employee_id, first_name, last_name, hire_date)
+			SELECT * FROM employees;

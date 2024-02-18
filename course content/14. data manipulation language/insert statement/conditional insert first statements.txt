@@ -1,0 +1,30 @@
+ 	
+	 ~ Conditional INSERT FIRST Statements ~
+	 	* We can build IF-THEN-ELSE logic using the INSERT FIRST statement.
+	 	* When we specify INSERT FIRST instead of INSERT ALL, then, the database 
+	 	  evaluates each WHEN clause in the order in which it appears in the statement.
+	 	* For the first WHEN clause that evaluates to true, the database executes the
+	 	  corresponding INTO clause and skips subsequent WHEN clauses for the given row.
+	 	* If the first condition is satisfied, then, it stops checking. If not, it
+	 	  continues until one is satisfied or it reaches the ELSE statement.
+
+		 	INSERT FIRST
+		 		WHEN condition_1 THEN
+		 			INTO insert_statement_1;
+		 			INTO insert_statement_2;
+		 			...
+		 		WHEN condition_2 THEN
+		 			INTO insert_statement_3;
+		 			...
+		 		ELSE
+		 			INTO insert_statement_n;
+		 	subquery;
+
+		 	INSERT FIRST
+		 		WHEN salary < 5000 THEN
+		 			INTO low_salaries VALUES(employee_id, department_id, salary)
+		 		WHEN salary BETWEEN 5000 AND 10000 THEN
+		 			INTO avg_salaries VALUES(employee_id, department_id, salary)
+		 		ELSE
+		 			INTO high_salaries VALUES(employee_id, department_id, salary)
+		 	SELECT * FROM employees;

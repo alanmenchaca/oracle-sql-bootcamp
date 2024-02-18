@@ -1,0 +1,28 @@
+
+	 ~ Multitable Insert Statements ~
+	 [UNCONDITIONAL INSERT ALL Statement]
+
+	 	* Each row returned by the subquery is inserted into each of the target tables
+	 	  using the Unconditional INSERT ALL Statement.
+
+		 	- INSERT ALL
+		 		  INTO table_name_1 VALUES(val_1, val_2, val_3, ...)
+		 		  INTO table_name_2(col_1, col_2, col_3) VALUES(val_4, val_5, val_6, ...)
+		 		  INTO table_name_3(col_1, col_2, col_3) VALUES(val_7, val_8, val_9, ...)
+		 		  ...
+		 	  Subquery;
+ 	 	
+ 	 		- INSERT ALL
+	 		  	  INTO employees_history VALUES(employee_id, first_name, last_name, hire_date)
+	 			  INTO salary_history
+	 			  		VALUES(employee_id, 
+	 			  			   EXTRACT(year FROM sysdate), 
+							   EXTRACT(month FROM sysdate), 
+							   salary, comission_pct)
+	 		  SELECT * FROM employees WHERE hire_date > TO_DATE('15-MAR-08');
+
+	 		- INSERT ALL
+			      INTO employees_history VALUES(105, 'Adam', 'Smith', sysdate)
+			      INTO employees_history VALUES(106, 'Paul', 'Smith', (sysdate + 1))
+			  SELECT * FROM dual;
+			  

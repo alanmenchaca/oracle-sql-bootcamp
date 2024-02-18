@@ -1,0 +1,51 @@
+ 	
+	 ~ INSERT Statement ~
+	 	* Adding one or more new rows into a table is performed using the INSERT
+	 	  statement.
+	 		- SELECT INTO table(column_1, column_2, column_3, ..., column_n)
+	 		  	VALUES (value_1, value_2, value_3, ..., value_n);
+
+	 	* While inserting a new row into a table, we don't have to specify all
+	 	  the columns of the table.
+			- INSERT INTO jobs(job_id, job_title, min_salary)	 	
+			  	VALUES('GR_LDR', 'Group Leader', 8500);
+
+ 		* Unspecified columns will be filled with NULL values or DEFAULT values
+ 		  if they have any.
+ 		* We can insert a new row without specifying column names.
+ 			- INSERT INTO jobs VALUES('PR_MGR', 'Project Manager', 11000, 18000);
+
+ 		* We can add a new row without specifying column names and without writing
+ 		  the full set of values.
+ 			- INSERT INTO departments_copy VALUES(280, 'Customer Relations', null, null);
+
+ 		* We can create column values using single-row functions.
+ 			- INSERT INTO job_history(employee_id, start_date,
+ 									  end_date, job_id, department_id)
+    		   	VALUES(120, to_date('01/05/03', 'DD/MM/YY'), sysdate, 'IT_PROG', 60);
+
+ 	
+	 ~ INSERT INTO SELECT Statement ~
+	 	* The INSERT INTO SELECT statement is used to populate data into a table by
+	 	  the result of a SELECT statement.
+	 		- INSERT INTO target_table(col_1, col_2, col_3, ...)
+	 		  	SELECT col_1, col_2, col_3, ... FROM source_table;
+
+	 	* We can use the INSERT INTO SELECT statement either with or without the
+	 	  column list.
+	 		- INSERT INTO employees_copy SELECT * FROM employees;
+
+	 		- INSERT INTO employees_copy(employee_id, first_name, salary)
+	 		  	SELECT employee_id, first_name, salary FROM employees;
+
+	 	* We can copy specific rows from a table into another table.
+	 		- INSERT INTO it_programmers
+	 		  	SELECT * FROM employees WHERE job_id = 'IT_PROG';
+
+	 	* We can use insert new rows by using multiple tables.
+	 		- INSERT INTO employee_addresses
+	 		  	SELECT employee_id, first_name, last_name, 
+	 		  		 city || ' - ' || street_address AS address
+	 		  	FROM employees
+	 		  	JOIN departments USING (department_id)
+	 		  	JOIN locations USING (location_id);

@@ -1,0 +1,17 @@
+ 	
+	 ~ Transaction Control Statements ~
+	 	* Oracle implements the concept of a transaction like most databases.
+	 	* What is a Transaction?
+	 		- A transaction is a unit of work that you want to treat as "a whole".
+	 		  It has to either happen in full or not at all.
+	 	* Transactions are used to ensure data integrity, data consistency and
+	 	  data security.
+	 	* A transaction starts with the first execution of DML statements and finishes
+	 	  with any commit, rollback or system failure, or the DLL or DCL statements.
+	 	* When we execute a DML operation, the affected rows are locked and no one
+	 	  else can update or delete these rows during this lock.
+	 	* There are 3 types of Transaction Control Statements:
+	 		1. Commit
+	 		2. Rollback
+	 		3. Savepoint
+	 		

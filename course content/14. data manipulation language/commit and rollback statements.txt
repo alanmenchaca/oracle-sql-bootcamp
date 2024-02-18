@@ -1,0 +1,16 @@
+ 	
+	 ~ COMMIT and ROLLBACK statements ~
+	 	* Rollback: Undoes any changes made to the database and restores data to
+	 	  its previous state.
+	 	* Commit: Permanently saves the changes into the database and ends the
+	 	  transaction.
+	 	* A transaction will end when any commit or rollback statements are encountered.
+	 	* Before commit or rollback operations, you can only see the changes in your own
+	 	  session, but no one else can see them in their sessions.
+	 	* After committing any DML operations, everyone will be able to see the changes
+	 	  as they will be permanent.
+	 	* After commit or rollback operations, all the locked rows are released and
+	 	  everyone can change these rows.
+	 	* After a Data Definition Language (DDL) or Data Control Language (DCL) statement,
+	 	  the commit will be automatically executed.
+ 	 	   

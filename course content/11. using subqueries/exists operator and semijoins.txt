@@ -1,0 +1,28 @@
+	
+	 ~ EXISTS Operator & Semijoins ~
+	 	* We use the EXISTS operators to check the existence of rows in the subquery
+	 	  and match the records between the subquery and main query.
+			- EXISTS returns: True or False	 	  
+	 	* The EXISTS operator is used with the correlated subqueries generally.
+	 	* The EXISTS operator terminates the processing of the subquery once the
+	 	  subquery returns the first row.
+	 	* The subquery does not need to return a specific type of value. It can be
+	 	  constant, a NULL or a column value.
+	 	* The subquery can return more than one value.
+
+	 	* Finding the managers using the EXISTS operator:
+
+	 	SELECT employee_id, first_name, last_name, department_id
+		FROM employees a
+		WHERE EXISTS (SELECT 1, employee_id
+		              FROM employees
+		              WHERE manager_id = a.employee_id);
+
+		* A Semijoin between two tables returns rows that match an EXISTS or IN
+		  subquery without duplicating the rows of the main query even when there
+		  are multiple matches from the subquery.
+			- The queries including the EXISTS or IN operators are considered as 
+			  semijoins.
+
+		* In summary, the EXISTS operator is used for testing the existence of the
+		  rows in a query.

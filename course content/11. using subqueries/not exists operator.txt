@@ -1,0 +1,25 @@
+	
+	 ~ NOT EXISTS Operator ~
+	 	* The NOT EXISTS is the negation format of the EXISTS operator.
+	 	* We use the NOT EXISTS operator to test whether a value in the main
+	 	  query does not exists in the subquery.
+
+	 	SELECT department_id, department_name
+	 	FROM departments d
+	 	WHERE NOT EXISTS (SELECT department_id)
+	 					  FROM employees
+	 					  WHERE department_id = d.department_id);
+
+	 	* We can use the NOT IN operator instead of NOT EXISTS but we may not
+	 	  get the same result every time.
+
+	 	SELECT department_id, department_name
+	 	FROM departments d
+	 	WHERE NOT IN (SELECT department_id FROM employees);
+
+	 	* In the previous statement, no rows are returned: If any row with a
+	 	  null value returns by the subquery, there will be a logical error.
+
+	 		[IMPORTANT NOTE]
+	 	* The NOT EXISTS operator usually works faster than the NOT IN operator.
+	 	

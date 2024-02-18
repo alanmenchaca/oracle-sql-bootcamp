@@ -1,0 +1,24 @@
+	
+	 ~ Using Subqueries as a Table (Inline Views) ~
+	 	* We can use a subquery after the FROM clause like using a table.
+	 		- SELECT * FROM (SELECT state_province, city, department_id, department_name
+	 		 				FROM departments JOIN locations USING (location_id));
+	 	* This type of subqueries are also called the INLINE Views.
+	 	* The INLINE Views are used as a source or a SELECT query like a table.
+	 	* We can use more than one INLINE View in a SELECT statement.
+	 	* The inline views must be surrounded by the parentheses
+
+	 	SELECT * FROM (SELECT department_id, department_name , state_province, city
+              FROM departments JOIN locations
+              USING (location_id)
+              ORDER BY department_id);
+
+	 	SELECT e.employee_id, e.first_name, e.last_name, 
+        	   b.department_name, b.city, b.state_prov ince
+		FROM employees e INNER JOIN(
+		              SELECT department_id, department_name , state_province, city
+		              FROM departments JOIN locations
+		              USING (location_id)
+		              ORDER BY department_id) b
+		USING (department_id);
+		

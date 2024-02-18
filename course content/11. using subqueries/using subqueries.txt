@@ -1,0 +1,26 @@
+	
+	 ~ Using Subqueries ~
+	 	* A subquery is a SQL SELECT statement that is contained within another
+	 	  SELECT statement.
+	 		- Query 1 (Inner Query) -> Query 2 (Outer query) -> Final output
+
+	 	SELECT column_names FROM table
+	 		WHERE expression-operator
+	 			(SELECT column_names FROM table);
+
+	 	SELECT first_name, last_name, salary FROM employees 
+		WHERE salary > 
+		            (SELECT salary 
+		             FROM employees 
+		             WHERE employee_id = 145);
+
+		* The inner query is also named "subquery" and outer query is also named
+		  "main" or "parent" query.
+		* A subquery is executed before the main query and the result of the subquery
+		  is used by the main query.
+		* Subqueries are enclosed with a parentheses.
+		* Subqueries can be used with the SELECT, WHERE, HAVING and FROM clauses.
+		* There are 3 types of subqueries:
+			1. Single-row subqueries
+			2. Multiple-row subqueries
+			3. Multiple-column subqueries

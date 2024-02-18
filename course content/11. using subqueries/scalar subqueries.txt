@@ -1,0 +1,28 @@
+	
+	 ~ Scalar Subqueries ~
+	 	* If a subquery returns only one column for one row, it is called a
+	 	  Scalar Subquery.
+	 	* If a scalar subquery returns NULL or 0 rows, the main query will
+	 	  return nothing.
+	 	* If a scalar subquery returns more than 1 row, the main query will
+	 	  return an error.
+	 	* Scalar subqueries can be used with:
+	 		- SELECT Statements
+	 		- DECODE function and CASE expressions
+	 		- WHERE clauses
+	 		- SET clauses of UPDATE statements
+	 		- VALUES clauses of INSERT statements
+	 		- ORDER BY clauses
+
+	 	SELECT employee_id, first_name, last_name FROM employees
+		WHERE department_id = (SELECT department_id 
+		                       FROM employees 
+		                       WHERE UPPER(first_name) = 'LUIS');
+
+		SELECT employee_id, first_name, last_name, 
+		    (CASE WHEN location_id=(SELECT location_id 
+		                            FROM locations 
+		                            WHERE postal_code='99236') THEN 'San Francisco'
+		        ELSE 'Other'
+		        END) AS "city"
+		FROM employees e NATURAL JOIN departments d;

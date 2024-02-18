@@ -1,0 +1,37 @@
+	
+	 ~ Multiple Column Subqueries ~
+	 	* Return more than one column to the outer query.
+	 	* Can be used with the FROM, WHERE or HAVING clauses.
+	 	* Generally used with the IN or NOT IN operators.
+	 	* There are two types of multiple-column subqueries:
+	 		1. Non-pairwise Comparison Subquery
+	 		2. Pairwise Comparison Subquery
+
+	 	== Non-pairwise Comparison Subquery ==
+	 		- Nonpairwise comparisons are like multiple-row subqueries with the IN
+	 		  operator, that we check multiple column values with separate subqueries.
+
+	 	== Pairwise Comparison Subquery ==
+	 		- A subquery returning multiple columns is called "Pairwise Comparison
+	 		  Subquery".
+
+	 		*** Non-Pairwise Comparison Subquery ***
+	 		SELECT employee_id, first_name, last_name, department_id, salary
+			FROM employees
+			WHERE department_id IN 
+			                      (SELECT department_id FROM employees
+			                       WHERE employee_id IN (103, 105, 110))
+			AND salary IN 
+			             (SELECT salary FROM employees
+			             WHERE employee_id IN (103, 105, 110));
+
+			*** Pairwise Comparison Subquery ***
+	 		SELECT employee_id, first_name, last_name, department_id, salary
+			FROM employees
+			WHERE (department_id, salary) IN 
+			            (SELECT department_id, salary FROM employees
+			            WHERE employee_id IN (103, 105, 110));
+
+			- We can write more than 2 columns and have a comparison of more than
+			  2 columns at a time.
+			

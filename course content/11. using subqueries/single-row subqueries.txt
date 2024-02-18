@@ -1,0 +1,40 @@
+	
+	 ~ Single-Row Subqueries ~
+	 	* Single-row subqueries return only one row from the inner query.
+	 	* Used with the single-row comparison operators (=, >, <, >=, <=, <>, !=).
+
+	 	SELECT first_name, last_name, department_id 
+		FROM employees
+		WHERE department_id = (SELECT department_id 
+		                       FROM employees 
+		                       WHERE employee_id = 145);
+
+		* We can use more than one subquery in one main query.
+
+		SELECT first_name, last_name, salary 
+		FROM employees
+		WHERE department_id = (SELECT department_id 
+		                       FROM employees 
+		                       WHERE employee_id = 145)
+		AND salary < (SELECT salary 
+		              FROM employees 
+		              WHERE employee_id = 145);
+
+		* Group functions can be used in the single-row subqueries.
+
+		SELECT first_name, last_name, hire_date
+		FROM employees
+		WHERE hire_date = 
+						 (SELECT MIN(hire_date)
+						  FROM employees);
+
+		* If a single-row subquery returns multiple-rows, it generates an error.
+		* If a subquery returns nothing or a NULL value, the main query will 
+		  return nothing.
+
+		SELECT first_name, last_name, hire_date
+		FROM employees
+		WHERE hire_date = 
+						 (SELECT MIN(hire_date)
+						  FROM employees
+						  GROUP BY department_id);

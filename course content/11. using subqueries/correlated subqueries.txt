@@ -1,0 +1,24 @@
+	
+	 ~ Correlated Subqueries ~
+	 	* When a subquery references to the columns from the parent query, it is
+	 	  called correlated subquery.
+	 	* Correlated subqueries allow us to read every row in a table and compare
+	 	  values for each row against the related data.
+	 	* In regular subqueries, they are executed first and the result of the
+	 	  subqueries are passed back to the parent query.
+	 	* In correlated subqueries, a candidate row is selected from the main query
+	 	  and used with the correlated subquery, and the result of this subquery is
+	 	  used by the main query afterwards.
+	 	* A correlated subquery is used for row by row processing. The subquery is
+	 	  executed for each row of the main query.
+	 	* A correlated subquery is also known as:
+	 		- Repeating Subquery.
+	 		- Synchronized Subquery.
+	 	* We can use correlated subqueries with the logical operators (<, =, ...),
+	 	  IN, ANY, ALL operators.
+
+	 	SELECT employee_id, first_name, last_name, department_id, salary
+	 	FROM employees a
+	 	WHERE salary = (SELECT MAX(salary)
+	 					FROM employees b
+	 					WHERE b.department_id = a.department_id);

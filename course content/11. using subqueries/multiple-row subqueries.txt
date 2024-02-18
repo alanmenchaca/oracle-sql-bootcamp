@@ -1,0 +1,60 @@
+	
+	 ~ Multiple-Row Subqueries ~
+	 	* Return more than one row from the inner queries.
+	 	* Used with multiple-row comparison operators (IN, ANY, ALL).
+	 		1. IN Operator: Checks whether a value matches any values in a subquery.
+	 		2. ANY Operator: Checks whether a value matches at least one value in a
+	 		   subquery.
+	 		3. ALL Operator: Checks whether a value matches all values in a subquery. 
+	 	* Can be used with the FROM, WHERE or HAVING clauses.
+
+
+	 ~ Using the "IN" Operator with Subqueries ~
+	 	* The IN operator in multiple-row subqueries is used to return rows that match
+	 	  with the elements of the inner query.
+
+	 	SELECT first_name, last_name, department_id, salary
+		FROM employees
+		WHERE salary IN (SELECT MIN(salary) 
+		                 FROM employees
+		                 GROUP BY department_id);
+
+
+	 ~ Using the "ANY" Operator with Subqueries ~
+	 	* The ANY operator returns rows if at least one of the values returned from
+	 	  the subquery meets the condition.
+	 	* The ANY operator is used with the comparison operators (=, >, <, >=, <=, !=, <>).
+		 	* < ANY means less than the maximum.
+		 	* = ANY means equal to one of the elements (same as IN).
+		 	* > ANY means more than the minimum.
+
+	 	SELECT first_name, last_name, department_id, salary
+		FROM employees
+		WHERE salary > ANY 
+		                   (SELECT salary 
+		                   FROM employees 
+		                   WHERE job_id = 'SA_MAN');
+
+		SELECT first_name, last_name, department_id, salary
+		FROM employees
+		WHERE salary < ANY 
+		                   (SELECT salary 
+		                   FROM employees 
+		                   WHERE job_id = 'SA_MAN');
+
+
+	 ~ Using the "ALL" Operator with Subqueries ~
+	 	* The ALL operator in multiple-row subqueries is used to return values which
+	 	  provide the condition with all elements of the inner query.
+		* The ALL operator is used with the comparison operators (=, >, <, >=, <=, !=, <>).
+			* < ALL means less than the minimum.
+			* = ALL means nothing if there are more than one records.
+			* > ALL means more than the maximum.
+
+		SELECT first_name, last_name, department_id, salary
+		FROM employees
+		WHERE salary < ALL 
+		                   (SELECT salary 
+		                   FROM employees 
+		                   WHERE job_id = 'SA_MAN');
+		                   

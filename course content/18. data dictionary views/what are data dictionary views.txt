@@ -1,0 +1,38 @@
+		 	
+	 ~ Data Dictionary Views ~
+	 	* Oracle Server:
+	 		- Created by Users - Tables (Contain data created by users):
+	 			* EMPLOYEES
+	 			* DEPARTMENTS
+	 			* LOCATIONS
+	 			* JOB_HISTORY
+	 			* REGIONS
+	 			* ...
+	 		- Created by Oracle Server - Data Dictionary Views 
+	 									 (Contain metadata - read only)
+	 			* DICTIONARY
+	 			* USER_OBJECTS
+	 			* ALL_TABLES
+	 			* DBA_CONSTRAINS
+	 			* USER_TAB_COLUMNS
+	 			* ...
+
+	 	[A data dictionary is a set of read-only tables that provides administrative
+	 	  metadata about the database and database objects]
+
+	 	* Data dictionary views are a collection of tables and views that contains
+	 	  information about the database.
+	 	* They are created and maintained by the Oracle Server.
+	 	* They can be used by the Oracle Database itself or users including developers,
+	 	  database administrators and application designers.
+	 	* Data Dictionary views are read-only.
+	 	* We use SQL statements to access data dictionary views.
+	 	* What is in the Data Dictionary Views?:
+	 		- Definitions of all schema objects in the database (tables, views, functions,
+	 		  indexes, etc.)
+	 		- Names of all users
+	 		- Default values for columns
+	 		- Constraint information
+	 		- Privileges of users
+	 		- Much more information about the database.
+	 		

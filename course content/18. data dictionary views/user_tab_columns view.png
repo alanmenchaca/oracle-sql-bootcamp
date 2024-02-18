@@ -1,0 +1,24 @@
+		 	
+	 ~ USER_TAB_COLUMNS View ~
+	 	* The USER_TAB_COLUMNS view is used to see all the columns of all tables and views
+	 	  we own.
+	 	* The USER_TAB_COLUMNS view has information like:
+	 		- Table Name
+	 		- Column Name 
+	 		- Data Type
+	 		- Data Length
+	 		- ...
+
+	 		SELECT * FROM USER_TAB_COLUMNS; = SELECT * FROM COLS;
+	 		- SELECT * FROM COLS; -> synonym for user_tab_columns view.
+
+	 	* We can query a specific table's columns and columns properties using the
+	 	  user_tab_columns view.
+	 		SELECT column_name, data_type, data_length, nullable, data_default,
+			       num_nulls, avg_col_len, num_distinct
+			FROM user_tab_columns -- cols
+			WHERE table_name = 'EMPLOYEES';
+
+			SELECT * FROM user_tab_columns
+			WHERE table_name = 'DEPARTMENTS';
+			

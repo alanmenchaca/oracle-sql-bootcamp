@@ -1,0 +1,17 @@
+		 	
+	 ~ USER_CONS_COLUMNS View ~
+	 	* Stores information about all the column - constraint pairs of our tables and views.
+	 	* Has critical information such as owner, constraint_name, table_name, column_name, and
+	      position.
+	      SELECT * FROM USER_CONS_COLUMNS;
+
+	      SELECT b.constraint_type, a.*, b.r_constraint_name
+		  FROM user_cons_columns a INNER JOIN user_constraints b 
+		    ON (a.table_name = b.table_name)
+		  WHERE a.table_name = 'EMPLOYEES';
+
+		  SELECT b.constraint_type, a.*, b.r_constraint_name
+		  FROM user_cons_columns a INNER JOIN user_constraints b 
+		    ON (a.table_name = b.table_name)
+		  ORDER BY a.table_name, a.constraint_name;
+		  

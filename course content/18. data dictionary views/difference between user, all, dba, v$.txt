@@ -1,0 +1,18 @@
+		 	
+	 ~ Difference Between USER, ALL, DBA, V$ prefixes ~
+	 	* Data dictionary views are categorized under 4 major groups: USER, ALL, DBA, or V$.
+			- USER Prefix: Includes all the objects in the user's schema.
+				SELECT * FROM user_constrains;
+			- ALL Prefix: Includes all the objects in the user's schema and the objects
+			  that the user can access in all schemas.
+			  	SELECT * FROM all_constraints;
+			- DBA Prefix: Includes all the objects of all users. Only DBAs and users who
+			  have the required privileges can access these data dictionary views.
+			- V$ Prefix: Includes views that have information about database performance.
+			  Only DBAs and users who have the privileges can access these data dictionary
+			  views.
+				* System Usage
+				* Storage
+				* Memory
+
+			DBA_ Prefixes -> ALL_ Prefixes -> USER_ Prefixes

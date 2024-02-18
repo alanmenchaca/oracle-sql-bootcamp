@@ -1,0 +1,14 @@
+		 	
+	 ~ USER_VIEWS View ~
+	 	* The USER_VIEWS data dictionary view shows the details about the views that the
+	 	  user owns.
+	 	* When we use a view in a query, Oracle Server:
+	 		1. Retrieves thew view text from the USER_VIEWS data dictionary view.
+	 		2. Checks if the user has privileges to query from this view.
+	 		3. Checks for the privileges of the view owner on the base tables used in
+	 		   the view.
+	 		4. Executes the view subquery (Retrieves data or makes an update).
+	 	* The USER_VIEWS data dictionary views stores metadata of all the views that the
+	 	  user has.
+
+	 	  SELECT * FROM user_views;

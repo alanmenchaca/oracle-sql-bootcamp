@@ -1,0 +1,17 @@
+		 	
+	 ~ USER_TABLES View ~
+	 	* We can query the USER_TABLE view to see all the tables that we own.
+	 		SELECT * FROM user_tables; = SELECT * FROM tabs;
+	 		- tabs: synonym for user_tables view.
+
+	 	- USER_OBJECTS
+	 	- USER_TABLES
+	 	- USER_INDEXES
+
+	 	* ALL_OBJECTS
+	 	* ALL_TABLES
+	 	* ALL_INDEXES
+
+	 	- DBA_OBJECTS
+	 	- DBA_TABLES
+	 	- DBA_INDEXES

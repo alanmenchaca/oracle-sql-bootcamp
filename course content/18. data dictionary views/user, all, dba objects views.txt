@@ -1,0 +1,28 @@
+		 	
+	 ~ USER_OBJECTS, ALL_OBJECTS, DBA_OBJECTS Views ~
+	 	* We can query the USER_OBJECTS view to see all the objects that we own.
+	 	* The USER_OBJECTS view contains the following information:
+	 		- OBJECT_NAME: Name of the object
+	 		- OBJECT_TYPE: Type of the object (Table, View, etc.)
+	 		- CREATED: Time of the creation of the object
+	 		- LAST_DDL_TIME: Last modification time of the object (Changing the structure)
+	 		- STATUS: Status of the object (Valid, invalid, N/A)
+	 		- GENERATED: Wheter this object is system-generated or not (Y|N)
+	 	* There are many more columns in the USER_OBJECTS view
+	 		SELECT * FROM USER_OBJECTS.
+	 		
+	 	* Cat View (USER_CATALOG): CAT is synonym for the USER_CATALOG view which returns
+	 	  just the table_name and the table_type columns which list tables, views, synonyms
+	 	  and sequences of the user.
+	 		- This statement includes the objects that were dropped previously.
+	 		- SELECT * FROM USER_CATALOG;
+
+	 	* ALL OBJECTS VIEW: We can query ALL_OBJECTS view to see all objects that we own
+	 	  and all the objects that the user can access in all schemas.
+			- User's Own Objects + Other Users Objects
+			- SELECT * FROM ALL_OBJECTS;
+
+		* We can query the DBA_OBJECTS view to see all objects of all users including
+		  system objects.
+			- DBA privileges are required!
+			- SELECT * FROM DBA_OBJECTS;

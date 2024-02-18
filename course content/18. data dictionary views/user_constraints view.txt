@@ -1,0 +1,31 @@
+		 	
+	 ~ USER_CONSTRAINTS View ~
+	 	*  We can query the USER_CONSTRAINTS view to disaply all the information about the 
+	 	   constraints on our tables.
+	 		- OWNER: Onwer of the table.
+	 		- CONSTRAINT_NAME: Name of the constraint.
+	 		- CONSTRAINT_TYPE: Type of the constraint.
+	 		- TABLE_NAME: Name of the table associated with the constraint.
+	 		- STATUS: Status of the constraint (ENABLED/DISABLED).
+	 		- INDEX_NAME: The index used by the constraint.
+	 		- SEARCH_CONDITION: Rule for the condition (Example: NOT NULL).
+	 		- R_CONSTRAINT_NAME: Name of the unique constraint in the referenced table.
+	 		- DELETE_RULE: Delete rule for a referential constraint (CASCADE,
+	 		  SET NULL, NO ACTION).
+
+	 	* In the USER_CONSTRAINTS type view, the type of the constraint is represented by
+	 	  one character in the CONSTRAINT_TYPE column:
+	 	  	- C -> Check Constraint
+	 	  	- P -> Primary Key
+	 	  	- U -> Unique Key
+	 	  	- R -> Referential Integrity (Foreign Key)
+	 	  	- V -> With Check Option (Used For Views)
+	 	  	- O -> With Read-Only (Used for Views)
+
+	 		SELECT owner, table_name, constraint_name, constraint_type, search_condition,
+	 			   r_constraint_name, delete_rule, status, index_name
+	 		FROM USER_CONSTRAINTS;
+
+	 	[Unique and Primary Key constraints will automatically have unique indexes created
+	 	 by the server].
+	 	 

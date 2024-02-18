@@ -1,0 +1,9 @@
+		 	
+	 ~ Dictionary View ~
+	 	* We can find the complete list of all data dictionary views in the view
+	 	  named DICTIONARY.
+	 	* All data dictionary view are written in uppercase.
+	 		SELECT * FROM dictionary; -- SELECT * FROM dict; 
+			SELECT * FROM dictionary WHERE table_name = 'USER_CONSTRAINTS';
+			SELECT * FROM dictionary WHERE table_name = 'USER_TABLES';
+			SELECT * FROM dictionary where UPPER(table_name) LIKE '%SECURITY%';

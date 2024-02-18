@@ -1,0 +1,17 @@
+		 	
+	 ~ USER_TAB_COMMENTS & USER_COL_COMMENTS Views ~
+	 	* The USER_TAB_COMMENTS view is used to see all the comments of our tables and views.
+	 	* The USER_COL_COMMENTS view is used to see all the comments of columns of tables
+	 	  and views.
+	 	* Tables or columns having no comments are returned with NULL in the comment column.
+	 	* These views can also be used to find a table or column by searching some keywords
+	 	  from their comments.
+
+	 	  SELECT * FROM user_tab_comments WHERE UPPER(comments) LIKE '%EMPLOYEE%';
+
+	 	  SELECT * FROM user_tab_comments 
+		  WHERE UPPER(comments) LIKE '%SALARY%';
+
+		  SELECT * FROM user_col_comments 
+		  WHERE UPPER(comments) LIKE '%SALARY%';
+		  

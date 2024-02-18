@@ -1,0 +1,12 @@
+	
+	 ~ AVG Function ~
+		- The AVG function is used for getting the average value of the columns
+		  or expressions.
+		- AVG([DISTINCT|ALL] expression)
+		- It is exclusively used with numeric data.
+		- The DISTINCT, ALL keywords can be used to handle duplicate values.
+		- We can use the NVL, NVL2, COALESCE, CASE or DECODE functions to handle
+		  the NULL values.
+
+		- SELECT AVG(salary), AVG(ALL salary), AVG(DISTINCT salary) FROM employees;
+		

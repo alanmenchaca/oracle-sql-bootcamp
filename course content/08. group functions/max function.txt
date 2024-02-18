@@ -1,0 +1,11 @@
+	
+	 ~ MAX Function ~
+		- The MAX function returns the maximum value of an expression
+		  or column.
+		- MAX(expression)
+		- It is used with numeric, character or date data types.
+		- Using the DISTINCT or ALL keywords with the MAX function is 
+		  useless.
+		- The null-related functions can be used with the MAX function to
+		  handle the NULL values.
+		- SELECT MAX(salary) FROM employees;

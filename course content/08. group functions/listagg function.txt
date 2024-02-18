@@ -1,0 +1,9 @@
+	
+	 ~ LISTAGG Function ~
+		- The LISTAGG is used to aggregate strings from data in column in a
+		  database table.
+		- Concatenates values from separate rows into a single value.
+		- Transforms data from multiple rows into a single list of values
+		  separated by a specified delimiter.
+		- LISTAGG(column_name [,delimiter]) WITHIN GROUP (ORDER BY sort_expression)
+		

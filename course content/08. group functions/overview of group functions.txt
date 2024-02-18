@@ -1,0 +1,10 @@
+	
+	 ~ Overview of Group Functions ~
+		- Group Functions are used to manipulate multiple rows and return one value.
+		- The NULL values are ignored by default.
+		- The DISTINCT operator can be used to eliminate duplicate rows to work with
+		  the unique values.
+		- Multiple group functions can be used in a single query.
+		- SELECT MIN(salary), MAX(hire_date), AVG(salary), COUNT(*),
+			LISTAGG(DISTINCT job_id, ', ') WITHIN GROUP (ORDER BY job_id DESC)
+		  FROM employees;

@@ -1,0 +1,21 @@
+	
+	 ~ Oracle Group Functions ~
+		* SELECT group_function([DISTINCT | ALL] column_name), ... 
+		  	FROM table [WHERE condition];
+		* Group functions operate on multiple rows and return one result
+		  for each group.
+		* Group functions are usually used after the SELECT keyword.
+		* Multiple group functions can be used in a single SELECT statement.
+		* Group functions ingore the NULL values! But, we can use the NVL,
+		  NVL2, COALESCE, DECODE functions.
+		* The DISTINCT and ALL(default) keywords are used with the group function
+		  to consider duplicate values.
+
+		[note: The group functions ignore the NULL values]
+	- AVG: 	   Returns the average value.
+	- COUNT:   Returns the number of rows returned by a query.
+	- MAX:     Returns the maximum value of the expression or a column.
+	- MIN:     Returns the minimum value of the expression or a column.
+	- SUM:     Returns the sum of the expression or column values.
+	- LISTAGG: Transforms and orders data from multiple rows into a single list
+			   of values separated by a specified delimiter.

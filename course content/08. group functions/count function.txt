@@ -1,0 +1,14 @@
+	
+	 ~ COUNT Function ~
+		- Returns the number of rows returned by a query.
+		- COUNT([DISTINCT|ALL] expression)
+		- We can use the DISTINCT keyword to count the distinct values of the
+		  expression, or ALL keywords to count all rows.
+		- '*' represents all rows including the NULL values -> COUNT(*).
+		- If a column name is used with the COUNT function, this time, the NULL
+		  values are ignored -> COUNT(salary).
+		- We can use the NVL, NVL2, COALESCE, CASE or DECODE function to handle
+		  the NULL values.
+		- SELECT COUNT(*), COUNT(manager_id), COUNT(ALL manager_id),
+		  	COUNT(DISTINCT manager_id) FROM employees;
+		  	

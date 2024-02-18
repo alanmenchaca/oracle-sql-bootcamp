@@ -1,0 +1,11 @@
+	
+	 ~ SUM Function ~
+		- Used for getting the sum of the column or expression we porvide
+		  it with.
+		- SUM([ALL|DISTINCT] expression)
+		- The ALL and DISTINCT keywords can be used to handle duplicate values.
+		- It is exclusively used with numeric data.
+		- The NVL, NVL2, COALESCE, CASE or DECODE functions can be used to handle
+		  the NULL values.
+		- SELECT SUM(salary), SUM(DISTINCT salary) FROM employees;
+		

@@ -1,0 +1,10 @@
+	
+	 ~ MIN Function ~
+		- Used for getting the minimum value of the expression or column.
+		- MIN(expression)
+		- Used with numeric, character and date data types.
+		- Using the DISTINCT or ALL keywords with the MIN function is useless.
+		- The NVL, NVL2, COALESCE, CASE or DECODE functions can be used to
+		  handle the NULL values.
+		- SELECT MIN(commission_pct), MIN(NVL(commission_pct, 0)), MIN(hire_date),
+		  	MIN(first_name) FROM employees;

@@ -1,0 +1,12 @@
+	
+	 ~ Outer Joins ~
+		* The outer joins return the matching rows from the joined tables,
+		  plus, unmatched rows from one or both tables.
+		* There are 3 types of outer joins:
+			1. Left Outer Join
+			2. Right Outer Join
+			3. Full Outer Join
+
+		* The INNER joins return only the matched rows.
+		* The OUTER joins return both the matched + unmatched rows of one
+		  or both tables.	

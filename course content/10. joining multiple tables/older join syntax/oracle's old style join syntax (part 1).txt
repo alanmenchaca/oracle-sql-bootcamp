@@ -1,0 +1,53 @@
+	
+	 ~ Oracle's Old Join Syntax (part 1) ~
+	 Older Join Syntax (Non-ANSI Standard)
+
+	 	* Non-ANSI or Non-ANSI Standard
+		* Cross join are used to return every combination of rows from
+
+		SELECT * FROM table WHERE condition(s);
+
+		* IN Oracle's Old Join Syntax, the WHERE condition can also:
+			1. Joining tables
+			2. Filtering rows
+
+
+		~ ANSI Standard Syntax ~
+			SELECT e.first_name, e.last_name, d.department_name
+			FROM employees e INNER JOIN departments d
+			ON (e.department_id = d.department_id);
+
+			SELECT e.first_name, e.last_name, d.department_name
+			FROM employees e LEFT OUTER JOIN departments d
+			ON (e.department_id = d.department_id);
+
+			SELECT e.first_name, e.last_name, d.department_name
+			FROM employees e RIGHT OUTER JOIN departments d
+    		ON (e.department_id = d.department_id);
+
+    		SELECT e.first_name, e.last_name, d.department_name
+			FROM employees e FULL OUTER JOIN departments d
+			ON (e.department_id = d.department_id);
+
+
+		~ Non-ANSI Standard Syntax ~
+			SELECT e.first_name, e.last_name, d.department_name
+			FROM employees e, departments d
+			WHERE e.department_id = d.department_id;
+
+			SELECT e.first_name, e.last_name, d.department_name
+			FROM employees e, departments d
+			WHERE e.department_id = d.department_id(+);
+
+			SELECT e.first_name, e.last_name, d.department_name
+			FROM employees e, departments d
+			WHERE e.department_id(+) = d.department_id;
+
+			SELECT e.first_name, e.last_name, d.department_name
+			FROM employees e, departments d
+			WHERE e.department_id(+) = d.department_id
+			UNION
+			SELECT e.first_name, e.last_name, d.department_name
+			FROM employees e, departments d
+			WHERE e.department_id = d.department_id(+);
+			

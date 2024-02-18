@@ -1,0 +1,23 @@
+	
+	 ~ Self Join ~
+		* Joining a table with itself is called "Self join".
+		* A self-join is used for comparing rows in the same table or querying
+		  hierarchical data.
+
+		SELECT 
+		    worker.first_name, worker.last_name, worker.employee_id, worker.manager_id, 
+		    manager.employee_id, manager.first_name, manager.last_name,
+		    worker.salary, manager.salary
+		FROM 
+		    employees worker INNER JOIN employees manager
+		    ON (worker.manager_id = manager.employee_id);
+
+
+		SELECT 
+		    worker.first_name || ' ' || worker.last_name AS "Employee Name", 
+		    manager.first_name || ' ' || manager.last_name AS "Manager Name", 
+		    worker.employee_id, worker.manager_id, manager.employee_id "Manager Employee Id" 
+		FROM 
+		    employees worker INNER JOIN employees manager
+		    ON (worker.manager_id = manager.employee_id);
+		    

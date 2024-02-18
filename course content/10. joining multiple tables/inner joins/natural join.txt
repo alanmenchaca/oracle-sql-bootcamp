@@ -1,0 +1,16 @@
+	
+	 ~ Natural Join ~
+		* source_table and target_table
+			- SELECT * FROM source_table NATURAL JOIN target_table;
+		* Implicitly joins two tables based on common columns that have the 
+		  same name and same data type.
+		* The rows are matched with each other from two tables that have equal
+		  values in the common columns.
+		* If common columns have the same name but different type of data, it
+		  will result in an error.
+		* The WHERE clause can be used to restrict data.
+
+		SELECT columns FROM table NATURAL JOIN table2;
+		SELECT * FROM employees NATURAL JOIN departments;
+
+		* In NATURAL joins, common columns are written just once in the output.

@@ -1,0 +1,17 @@
+	
+	 ~ Inner Join ~
+		* Returns all the rows from both the participating tables that satisfy
+		  the join condition or the expression of the ON/USING clause.
+		* In the Inner Joins, unmatched rows do not appear in the result set.
+
+		SELECT columns FROM table1 [INNER] JOIN table2
+		ON (join_condition) / USING(column_name);
+
+		* With the ON clause, we can write one or more join conditions even if
+		  they have different names. Only the rows that satisfy these join conditions
+		  are included in the result set.
+
+		SELECT e.first_name, e.last_name, d.manager_id, d.department_name
+		FROM employees e JOIN departments d
+		ON (e.department_id = d.department_id AND e.manager_id = d.manager_id);
+		

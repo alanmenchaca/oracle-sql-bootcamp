@@ -1,0 +1,27 @@
+	
+	 ~ Oracle's Old Join Syntax (part 2) ~
+	 	* All the join types performed with the ANSI syntax can be done with
+	 	  Oracle's old join syntax.
+	 	* We should always use the ANSI standard syntax.
+	 		1. The ANSI syntax is easier to read.
+	 		2. Old syntax is more likely to return unintentional data or
+	 		   cartesian product.
+	 		3. There is no difference in performance.
+	 		4. The outer join operator with the old syntax can be on one side
+	 		   of a join condition.
+	 			* SELECT e.first_name, e.last_name, d.department_name
+	 			  FROM employees e, departments d
+	 			  WHERE e.department_id(+) = d.department_id
+	 			  UNION
+	 			  SELECT e.first_name, e.last_name, d.department_name
+	 			  FROM employees e, departments d
+	 			  WHERE e.department_id = d.department_id(+);
+	 		5. A join condition containing the outer join operator (+) cannot
+	 		   use the IN operator.
+	 		   	* This rule is valid until the Oracle database version 10g!
+	 		6. A join condition containing the outer join operator (+) cannot
+	 		   be combined with another condition using the OR operator.
+	 		7. A join condition containing the join operator cannot involve a
+	 		   subquery.
+	 		8. The join operator need to be written for all the conditions that
+	 		   the table has.

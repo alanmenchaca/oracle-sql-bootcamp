@@ -1,0 +1,20 @@
+	
+	 ~ Non-Equijoins (Joining Unequal Tables) ~
+		* If two tables do not match with columns, we can join these tables
+		  using the BETWEEN operator, or the comparison operators (<, >, <=, >=, <>).
+
+		SELECT e.first_name, e.last_name j.job_title, e.salary, j.min_salary, j.max_salary,
+		FROM employees e JOIN jobs j
+		ON e.salary BETWEEN j.min_salary AND j.max_salary.
+
+		SELECT e.first_name, e.last_name, j.job_title, e.salary, 
+        	   j.min_salary, j.max_salary
+		FROM employees e JOIN jobs j
+		ON e.salary BETWEEN j.min_salary AND j.max_salary;
+
+		* Non-Equijoins Sample Usages:
+			- Checking for duplicates
+			- Matching against a range of values
+			- Computing running totals
+			- ...
+			

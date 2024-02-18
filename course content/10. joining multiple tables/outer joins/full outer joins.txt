@@ -1,0 +1,12 @@
+
+	 ~ Full Outer Joins ~
+		* Full Outer Join = Full Join
+		* Retrieves all of the rows from both tables. If match is found, then, it
+		  displays the matching rows, if not, it displays NULL values.
+		* Full Outer Join = Left Outer Join + Right Outer Join
+
+		SELECT e.first_name, e.last_name, e.department_id,
+			   d.department_id, d.department_name
+		FROM employees e FULL OUTER JOIN departments d
+			ON (e.department_id ON d.department_id);
+	

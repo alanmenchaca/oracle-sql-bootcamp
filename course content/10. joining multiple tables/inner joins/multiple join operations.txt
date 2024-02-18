@@ -1,0 +1,26 @@
+	
+	 ~ Multiple Join Operations ~
+		* We can join more than two tables.
+
+		SELECT 
+		    e.first_name, e.last_name, 
+		    d.department_name, 
+		    l.city, l.postal_code, l.street_address 
+		FROM 
+		    employees e 
+		    INNER JOIN departments d USING (department_id) 
+		    INNER JOIN locations l USING (location_id);
+
+		* We can use the USING, ON clauses, or NATURAL JOIN while joining multiple
+		  tables.
+
+		SELECT 
+			e.first_name, e.last_name, 
+       		d.department_name, 
+       		l.city, l.postal_code, l.street_address,
+       		c.country_id
+		FROM 
+			employees e 
+    		INNER JOIN departments d ON (e.department_id = d.department_id) 
+    		INNER JOIN locations l ON (d.location_id = l.location_id)
+    		INNER JOIN countries c ON (l.country_id = c.country_id); 

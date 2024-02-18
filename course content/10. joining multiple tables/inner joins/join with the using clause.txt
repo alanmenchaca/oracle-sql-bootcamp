@@ -1,0 +1,20 @@
+	
+	 ~ Join with the USING Clause ~
+		* When joining two tables, if there are more than one common columns
+		  that have the same names, we can use the USING clause to specify wich
+		  column need to be selected as the join column in the join operation.
+		* The USING clause is used for matching a specific column or columns
+		  when joining two tables.
+		* Joining with the USING clause is considered as "Equijoin".
+
+		SELECT first_name, last_name, departments_name, department_id
+		FROM employees JOIN departments USING (department_id);
+
+		
+	 ~ Handling Ambiguous Column Names ~
+		* Table aliases are used for handling column ambiguity when joining
+		  two or more tables.
+		* We can explain to the SQL engine which table's column will be used
+		  by writing the table aliases.
+		* Table aliases increase code readability and query performance.
+		

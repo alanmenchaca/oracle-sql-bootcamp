@@ -1,0 +1,14 @@
+	
+	 ~ What is a Join? ~
+		* A join is a concept that allows us to retrieve data from two or more
+		  tables in a single query.
+		* In SQL, we often need to write queries to get data from two or more
+		  tables. Anything but the simplest of queries will usually need data
+		  from two or more tables, and to get data from multiple tables, we need
+		  to use the joins.
+		* Joining tables does not change the actual data in the tables.
+	
+	
+	 ~ Creating a Join ~
+		* SELECT columns FROM table1 JOIN_TYPE table2 
+		  ON table1.column_name = table2.column_name;

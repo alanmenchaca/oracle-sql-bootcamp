@@ -1,0 +1,28 @@
+	
+	 ~ Restricting Joins ~
+		* We can restrict joins using the WHERE clause or the AND operator.
+
+		SELECT
+		    e.first_name, e.last_name,
+		    d.department_id, d.department_name,
+		    l.city
+		FROM 
+		    employees e
+		    INNER JOIN departments d ON (e.department_id = d.department_id)
+		    INNER JOIN locations l ON (d.location_id = l.location_id)
+		WHERE 
+			d.department_id = 100;
+
+
+		SELECT
+		    e.first_name, e.last_name,
+		    d.department_id, d.department_name,
+		    l.city
+		FROM 
+		    employees e
+		    INNER JOIN departments d ON (e.department_id = d.department_id)
+		    INNER JOIN locations l ON (d.location_id = l.location_id)
+		AND 
+			d.department_id = 100;
+
+		* We cannot write the WHERE clause more than once in a query.

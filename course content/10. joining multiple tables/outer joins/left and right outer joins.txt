@@ -1,0 +1,28 @@
+	
+	 ~ Left and Right Outer Joins ~
+		* Left Outer Join = Left Join
+		* The LEFT OUTER JOIN returns all the matching rows of both tables and
+		  the unmatched rows of the left table. For the unmatched rows, the column
+		  values of the other table are shown as NULLS.
+
+		SELECT e.first_name, e.last_name, e.department_id,
+			   d.department_id, d.department_name
+		FROM employees e LEFT OUTER JOIN departments d
+		ON (e.department_id = d.department_id);
+
+
+	 ~ Right Outer Joins ~
+	 	* Right Outer Join = Right Join
+		* The RIGHT OUTER JOIN returns all the matching rows of both tables and the
+		  unmatched rows of the right table. For the unmatched rows, the column
+		  values of the other table are shown as NULLS.
+
+		SELECT first_name, last_name, department_name,
+       		   e.department_id, d.department_id
+		FROM employees e RIGHT OUTER JOIN departments d
+        	ON(e.department_id = d.department_id);
+
+		SELECT e.first_name, e.last_name, e.department_id,
+		       d.department_id, d.department_name
+		FROM employees e RIGHT OUTER JOIN departments d
+			ON e.department_id = d.department_id;

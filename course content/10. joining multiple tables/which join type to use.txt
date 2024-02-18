@@ -1,0 +1,28 @@
+	
+	 ~ Which Join Type to Use? ~
+	 	
+	 		[IMPORTANT THINGS TO REMEMBER]
+	 	- Don't use the Non-ANSI syntax unless you really need to.
+	 	- Don't use the Natural joins.
+	 	- Use table aliases.
+
+	 	* Which join type should you use?
+	 		- Understand what you need to get.
+	 		- Determine if you need only the matched rows or not.
+	 		- If you need to get the unmatched rows as well, you need to use
+	 		  the OUTER joins.
+	 			* Use the LEFT OUTER Join if you need to get the matched rows
+	 			  and the unmatched rows from the LEFT table.
+	 			* Use the RIGHT OUTER Join if you need to get the matched rows
+	 			  and the unmatched rows from the RIGHT table.
+	 			* Use the FULL OUTER join if you need to get all the matched and
+	 			  the unmatched rows from both tables.
+	 		- Use the Inner Join if you need to get only the rows satisfying
+	 		  the join conditions.
+	 		- Use the Equijoins if you want to get only the rows which equally
+	 		  match with the join conditions.
+	 		- Use the Non-Equijoin if you want to get the rows which doesn't
+	 		  match equally.
+	 		- Use the Self Join if you want to join different rows of the same 
+	 		  table.
+	 		- Use the Cross Join if you need to generate massive amounts of data.

@@ -1,0 +1,23 @@
+	
+	 ~ Arithmetic Expressions ~
+	 	* Arithmetic expressions are used to perform arithmetic operations in SQL.
+	 	* An Arithmetic expression can contain column names, numeric numbers, 
+	 	  and arithmetic operators.
+	 		- Addition (+)
+	 		- Substraction (-)
+	 		- Multiplication (*)
+	 		- Division (/)
+	 	* Multiplication and division operations are performed before the addition
+	 	  and substraction operations.
+	 	* Parentheses has the highest precedence.
+	 	* Using parentheses increases the readability of the code.
+	 		- SELECT employee_id, salary, salary+50*12 AS "Annual Salary" FROM
+	 		  employees;
+
+	
+	 ~ Arithmetic Expressions and NULL Values ~
+	 	* Arithmetic operations with date values return new date values.
+	 		- For example:
+	 		We can also perform arithmetic operations by using dates and numbers
+	 		together.
+	 		- SELECT sysdate + 3 FROM dual; -- Three days after today.

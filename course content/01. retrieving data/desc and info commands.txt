@@ -1,0 +1,20 @@
+	
+	 ~ DESCRIBE Command ~
+	 	* Provides a description of the specified table.
+	 	* Returns coluumn names, nullable or not, and data types.
+	 		- DESC[RIBE] table_name;
+	 	* Can be used with the DESC or DESCRIBE keywords. 
+
+	 	We can get a more detailed explanation of a table by using
+	 	the SQL Developer tool (using shift + F4 shortcut in Oracle
+	 	DBMS).
+	 		
+	 ~ INFORMATION[+] Command ~
+	 	* Provides a more detailed description of the specified table.
+	 	* Returns column names, data types, nullable or not, default, low
+	 	  and high values, the number of distinct values, histograms,
+	 	  table comments, indexes, references, etc.
+	 		- INFO[RMATION] table_name;
+	 		- INFO[RMATION]+ table_name;
+	 	* Can be used with INFO or INFORMATION keywords.
+	 	* Can be used with INFO+ or INFORMATION+ keywords.

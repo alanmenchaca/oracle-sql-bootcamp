@@ -1,0 +1,11 @@
+	
+	 ~ DISTINCT & UNIQUE Operator ~
+	 	* They are used to eliminate the duplicate rows.
+	 		- SELECT DISTINCT JOB_ID FROM EMPLOYEES;
+	 		- SELECT UNIQUE JOB_ID FROM EMPLOYEES;
+	 	* DISTINCT and UNIQUE gets the same results, but it's
+	 	  more advisable to use "DISTINCT", since "DISTINCT"
+	 	  belongs to the SQL standard.
+	 	* There are some invalid usages of the DISTINCT operator.
+	 	* The DISTINCT operator is a row-based operator. Only one
+	 	  DISTINCT operator is used in an SQL query. 

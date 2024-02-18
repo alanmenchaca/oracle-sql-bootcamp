@@ -1,0 +1,8 @@
+	
+	 ~ Concatenation Operator ~
+	 	* Concatenates two or more strings or columns and returns as a
+	 	  single output column value.
+	 	* Can be done by two vertical bars (||).
+	 	* Concatenating with NULL value does not return NULL, it returns
+	 	  the other character strings.
+		* Using with aliases increases readability.

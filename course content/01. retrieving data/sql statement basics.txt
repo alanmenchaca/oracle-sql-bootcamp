@@ -1,0 +1,9 @@
+	
+	 ~ SQL Statement Basics ~
+		- SQL statements are not case-sensitive.
+		- SQL statements can be separated into multiple lines.
+		- Keywords cannot be abbreviated or split.
+		- In SQL Developer, SQL statements can be terminated by a
+		  semicolon ";", or a forward slash "/" sign.
+		- In SQL*Plus, we have to write semicolons at the end of each SQL statements.
+		- There need to be at least one space between the commands.

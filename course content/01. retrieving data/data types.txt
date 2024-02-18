@@ -1,0 +1,58 @@
+	
+	 ~ Data Types ~
+		 - VARCHAR2(size): Variable-length character data 
+		 	* We can think that as a data type storing strings.
+		 	* We should use VARCHAR2 data type when we don't know the exact 
+		 	  length of stored strings.
+
+		 - CHAR(size): Fixed-length character data.
+		 	* Fixed length strings.
+		 	* If we create with the size of 100 characters, even if the value
+		 	  of our column has 10 characters, it will use 100 bytes of disk
+		 	  space in our database.
+
+		 - NUMBER(p, s): Variable-length numeric data.
+		 	* We can store decimal numbers.
+		 	* This data type can store fixed or floating point numbers up to
+		 	  38 digits of precision.
+		 	* p paramaeter means precision.
+		 	* s parameter means scale.
+
+		 - DATE: Date and times values.
+		    * Stores date and time values.
+
+		 - LONG: Variable-length character data (up to 2GB).
+		 	* It's variable-length character data type just like the VARCHAR2,
+		 	  but this data type has a high capacity and it can store up to 2GB.
+		 	* It's not recommended to use by Oracle, instead, the CLOB or BLOB
+		 	  data types should be preferred. 
+
+		 - RAW and LONG RAW: Raw binary data.
+		 	* It's not recommended to use, instead we should use the other data
+		 	  types which are BLOB or BFILE.
+
+		BLOB and CLOB are the sub-data types of LOB data type which stands for
+		Large Objects.
+
+		 - BLOB: Maximum size is (4 gigabytes - 1) * (DB_BLOCK_SIZE initialization
+		  	     parameter (8 TB to 128 TB))
+		  	* It's mainly used to store and manipulate large blocks of unstructured
+		  	  data like images. videos, sound and any other multimedia files, etc.
+		  	* It can store up to 128 TB depending on our DB Block Size.
+
+		 - CLOB: Maximum size is (4 gigabytes - 1) * (DB_BLOCK_SIZE).
+		    * It's used to store large blocks of character data in the database.
+		    * It's the same as LONG data type.
+		    * It has higher capacity compared to the LONG data type.
+
+		 - BFILE: Binary data stored in an external file (up to 4 GB).
+		 	* External Large Object (External LOBs).
+		 	* BFILE column sotres a pointes to the actual file.
+		 	* The size of BFILE is limited by our Operating System.
+		 	* BFILE is read-only.
+
+		 - ROWID: A base 64 number system representation the unique address of a row
+		          in its table. 
+		    * It's stored in hexadecimal format, therefore the hexadecimal string
+		      represents the unique address.
+		      

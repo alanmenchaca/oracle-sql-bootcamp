@@ -1,0 +1,20 @@
+	
+	 ~ Using Column Aliases ~
+	 	* Renames a column heading
+	 	* AS keyword is used to increase readability.
+	 	* AS keyword is useful for calculations.
+	 	* Aliases are used with the double quotation marks if our
+	 	alias name contains space characters, special characters
+	 	or it is used for handling case-sensitivity.
+
+
+	 ~ Using Quote (q) Operator ~
+	 	* The quotation mark is used to increase readability and usability.
+	 		- SELECT q'[My name is Steven and my friend's name is Neena]'
+	 		  my_text FROM dual;
+	 	* We can use any character as quotation mark delimiter.
+	 		- [], {}, (), <>, or even any character like 'A', '*', ...
+	 			- Usually, [] is used as quotation mark delimiter.
+	 		- SELECT q'* My name is Asterisk*' text1, 
+	 		  q'bMy name is textb' text2 FROM dual;
+	 		  

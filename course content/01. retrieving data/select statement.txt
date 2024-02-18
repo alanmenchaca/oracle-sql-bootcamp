@@ -1,0 +1,7 @@
+	
+	 ~ SELECTE Statement ~
+	 	* SELECT statement is used to retrieve data from a database.
+	 		- SELECT *|{column_name1, column_name2, ...} FROM table;
+	 	* "*" retrieves all data without knowing table metadata.
+	 	* We can retrieve some specific columns by writing the column names.
+	 		- SELECT * FROM employees;

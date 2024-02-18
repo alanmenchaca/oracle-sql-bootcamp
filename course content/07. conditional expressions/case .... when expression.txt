@@ -1,0 +1,48 @@
+	
+	 ~ CASE ... WHEN Expression ~
+		* Performs an IF-THEN-ELSE check within an SQL statement.
+			- CASE expression WHEN comparison_expression_1 THEN result_1
+							 [WHEN comparison_expression_2 THEN result_2]
+							  ...
+							  WHEN comparison_expression_n THEN result_n
+							  ELSE result]
+		* Expression and comparison_expressions must be in the same data type.
+		* Can be used in both SELECT and WHERE clauses.
+
+		* There are two ways of using the CASE expressions which are Simple Case
+		  Expression and Searched Case Expression.
+			- Simple Case Expression: The expression is stated at the beginning,
+			  and the possible results are checked in the condition parameter.
+				* CASE first_name
+				  		WHEN 'Alex' THEN 'Name is Alex'
+				  		WHEN 'John' THEN 'Name is John'
+				  	ELSE 'Another'
+				  END
+			- Searched Case Expression: The expressions are used within each
+			  condition without mentioning it at the start of the CASE expression.
+				* first_name
+					  	WHEN first_name = 'Alex' THEN 'Name is Alex'
+					  	WHEN first_name = 'John' THEN 'Name is John'
+					  	WHEN last_name = 'King' THEN 'Steven King'
+					  	WHEN salary > 10,000 THEN 'salary > 10,000'
+					ELSE 'Another'
+				  END
+
+	 ~ CASE Expression in SELECT Statement ~
+		* SELECT first_name, last_name, job_id, salary, hire_date,
+		  	CASE job_id WHEN 'ST_MAN' THEN 1.20 * salary
+		  				WHEN 'SH_MAN' THEN 1.30 * salary
+		  				WHEN 'SA_MAN' THEN 1.40 * salary
+		  				ELSE salary END AS "UPDATED_SALARY"
+		  FROM employees WHERE job_id
+		  IN ('ST_MAN', 'SH_MAN', 'SA_MAN');
+
+	~ CASE Expression in WHERE Statement ~
+		* SELECT first_name, last_name, job_id, salary,
+		  	FROM employees
+		  	WHERE
+		  		(CASE
+		  			WHEN job_id = 'IT_PROG' AND salary > 5000  THEN 1
+		  			WHEN job_id = 'SA_MAN'  AND salary > 10000 THEN 1
+		  		    ELSE 0
+		  		END) = 1;

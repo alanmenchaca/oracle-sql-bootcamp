@@ -1,0 +1,43 @@
+	
+	 ~ What is a Function? ~
+		* Functions are created for manipulating the data and returning a
+		  value.
+		* Functions must be created before calling them. Otherwise, we will
+		  have the following error:
+		  	- Function has not been defined yet!
+		Functions are formerly created codes that resides in the database.
+		They can be called easily by typing only their names and parameters. 
+		* A function is a bunch of code created for reuse.
+			- Functions are also called as Stored Functions.
+		* There are two types of functions:
+			1. Single-Row Functions
+			2. Multiple-Row Functions (also called Group Functions)
+		* Calling a function:
+			- function_name[(args1, args2, ...)]
+
+
+	 ~ Single-Row Functions ~
+		* The single row functions operate on single rows and return only one
+		  result per row.
+		* Accept one or more arguments and return one value.
+		* Return value for each row returned. 
+		* Can be used alone or nested.
+			- function1(function2(function3(x)))
+		* A column or an expression can be used as arguments.
+		* The returning data type can be different than the input data types. 
+			- note: The type of output needs to be certain!
+		* Can be used in SELECT, WHERE or ORDER BY clauses.
+			- SELECT function_name
+		* Single-Row Functions:
+			- Numeric, Date, Conversion, General, Character
+
+	-- Overview of Single-Row Functions --
+		- Functions are categorized by the data types of their input parameters.
+			* Character Functions: Accept character values as input, and return
+			  character or numeric values.
+			* Number Functions: Accept numeric values as input and return numeric
+			  values as output.
+			* Date Functions: Operate on values of the DATE data type.
+			* Conversion Functions: Used to convert one data type to another.
+			* General Functions: These functions take in any data type. But, they
+			  are mainly used to handle the NULL values. 

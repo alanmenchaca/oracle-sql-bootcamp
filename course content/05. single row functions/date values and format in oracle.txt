@@ -1,0 +1,22 @@
+	
+	 ~ Date Values & Format in Oracle ~
+		- DATE is the main datatype used in Oracle for storing the date values.
+		- Oracle Database stores the date values in an internal numeric format.
+		- It stores a seven-byte number that contains the century, year, month,
+		  day, and hour, minute, and second.
+		- There are many different date representations in Oracle like:
+			* ('DD-MON-RR', 'DD-MM-YY', 'DD/MM/YYYY', etc.)
+		- The RR date format is a different time format element that allows us
+		  to show 20th-century dates in the 21st century using only 2 digits.
+
+	
+	 ~ DATE Data Types in Oracle ~
+		* DATE: The standard data type that stores date values in Oracle.
+		* TIMESTAMP: This data type stores year, month, day, hour, minute,
+		  second as well as fractional seconds.
+		* TIMESTAMP WITH TIME ZONE: This data type is the same as TIMESTAMP,
+		  but it stores the timezone along with it.
+		* TIMESTAMP WITH LOCAL TIME ZONE: This data type is similar to
+		  TIMESTAMP WITH TIME ZONE, but the stored timezone is the database's
+		  timezone.
+		  

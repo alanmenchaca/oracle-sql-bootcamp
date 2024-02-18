@@ -1,0 +1,18 @@
+	
+	 ~ Oracle Date Functions ~
+		* SYSDATE: returns the current date and time of the OS where the
+		  Oracle Database is installed.
+		* CURRENT_DATE: returns the curent date and time of the place where
+		  the user's session is logged in from.
+		* SESSIONTIMEZONE: returns time zone of the user's session.
+		* SYSTIMESTAMP: returns the date and time of the database.
+		* CURRENT_TIMESTAMP: returns current date and time from user's session.
+
+	
+	 ~ Arithmetic Operations with Dates ~
+		* We can add or substract a number from a date, and the result of this
+		  operation will also be a date.
+		* Subtracting two dates returns the number of days between these dates.
+			- SELECT first_name, last_name, (sysdate - hire_date) / 365
+				AS "Working Period" FROM employees;
+				

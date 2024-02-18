@@ -1,0 +1,12 @@
+	
+	 ~ Nested Functions ~
+		* Character functions take in character data as input and return
+		* Functions can be nested within each other. This is called Nesting Functions.
+			- Nested Functions = Nesting Functions
+		* Nest functions are evaluated starting from the innermost function and
+		  executed one by one toward the outermost one.
+		  	- function1(function2(function3()))
+		* We can use as many nested functions as we want
+			- SELECT first_name, last_name, 
+				LPAD(UPPER(CONCAT(first_name, last_name)), 20, '*') AS "NESTED FUNCTIONS"
+				FROM employees;

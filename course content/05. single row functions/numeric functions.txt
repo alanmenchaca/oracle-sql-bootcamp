@@ -1,0 +1,28 @@
+	
+	 ~ Numeric Functions ~
+		Numeric functions accept numeric values as the input and return
+		numeric vales as the output.
+
+		* ROUND: Takes in a number and rounds it to the specified number
+		  of decimal places.
+		  	- ROUND(number[, decimal])
+		  		* ROUND(12.136, 2) -> 12.14
+
+		* TRUNC: Truncates values to the specified number of decimal places.
+			- TRUNC(number[, decimal])
+			  	* TRUNC(12.136, 2) -> 12.13
+
+		* CEIL (Ceiling): Returns the smallest integer number greater than
+		  or equal to a specified number.
+			- CEIL(number)
+			    * CEIL(2.67) -> 3
+
+		* FLOOR: Returns the highest integer number less than or equal to a
+		  specified number.
+			- FLOOR(number)
+			  	* FLOOR(2.67) -> 2
+
+		* MOD: Returns the remainder of division.
+			- MOD(m, n)
+			  	* MOD(8, 5) -> 3
+ 

@@ -1,0 +1,32 @@
+	
+	 ~ Date Manipulation Functions ~
+		* Date functions operate on dates and return dates, numbers or texts. 
+
+			* ADD_MONTHS(date, n):
+				- Adds months to a date.
+				- ADD_MONTHS('18-SEP-23', 3) -> 18-DEC-23
+
+			* MONTHS_BETWEEN(date1, date2):
+				- Number of months between 2 dates.
+				- MONTHS_BETWEEN('03-SEP-20', '18-FEB-20') -> 
+				6.51612903225806451612903225806451612903
+
+			* ROUND(date[, format]):
+				- Rounds a date/time value to a specified element.
+				- ROUND(sysdate, 'MONTH') -> 01-NOV-23
+
+			* TRUNC(date[, format]):
+				- Truncates a date/time value to a specific element.
+				- TRUNC(sysdate, 'YEAR') -> 01-JAN-23
+
+			* EXTRACT(date_component FROM date):
+				- Extracts a specific time component from a date.
+				- EXTRACT(month FROM sysdate) -> 11
+
+			* NEXT_DAY(date, day_of_week):
+				- Returns the date of the next specified weekday.
+				- NEXT_DAY('04-JUN-20', 'TUESDAY') -> 09-JUN-20
+
+			* LAST_DAY(date):
+				- Returns the last day of the month.
+				- LAST_DAY('04-JUL-20') -> 31-JUL-20

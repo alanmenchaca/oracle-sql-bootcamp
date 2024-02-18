@@ -1,0 +1,33 @@
+	
+	 ~ Character Manipulation Functions ~
+		* SUBSTR(source_string, position[, length]): SUBSTRING
+			- SUBSTR('Sql Course', 1, 3) -> 'Sql'
+
+		* LENGTH(string)
+			- LENGTH('Sql Course') -> 10
+
+		* CONCAT(string1, string2): CONCATENATE
+			- CONCAT('Sql', 'Course') -> 'SqlCourse'
+
+		* INSTR(string, substring[, position, occurrence]): INSTRING
+			- INSTR('Sql Course', 'o') -> 6
+
+		* TRIM([[LEADING|TRAILING|BOTH] trim_character FROM] string)
+			- TRIM(' Sql Course ') -> 'Sql Course'
+
+		* LTRIM(string, [trim_string])
+			- LTRIM(' Sql Course ') -> 'Sql Course '
+
+		* RTRIM(string, [trim_string])
+			- RTRIM(' Sql Course ') -> ' Sql Course'
+
+		* REPLACE(string, string_to_replace[, replacement_string])
+			- REPLACE('Sql Course', 's', '*') -> 'Sql Cour*e'
+			- I we don't specify any replacement string, it will remove
+			  the matched characters.
+
+		* LPAD(string, target_length, padding_expression)
+			- LPAD('sql', 10, '-') -> '----------sql'
+
+		* RPAD(string, target_length, padding_expression)
+			- RPAD('sql', 10, '-') -> 'sql----------'

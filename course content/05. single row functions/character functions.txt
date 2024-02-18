@@ -1,0 +1,37 @@
+	
+	 ~ Character Functions ~
+		* Character functions take in character data as input and return
+		  character or numeric data as output.
+
+ 		* There are two different types of character functions:
+ 			1. Case Conversion functions: Convert characters to upper case
+ 			or lower case. 
+ 				1. UPPER function
+ 				2. LOWER function
+ 				3. INITCAP function
+ 			2. Character Manipulation functions:
+ 				1. SUBSTR function
+ 				2. LENGTH function
+ 				3. CONCAT function
+ 				4. INSTR function
+ 				5. TRIM function
+ 				6. REPLACE function
+ 				7. LPAD|RPAD function
+ 		
+
+ 		-- Case Conversion Functions --
+ 			* Case conversion functions are used to convert the characters
+ 			  to uppercase or lowercase characters.
+ 			  - LOWER Function: Converts all the input characters to lowercase
+ 			    characters.
+ 			  - UPPER Function: Converts all the input characters to uppercase
+ 			    characters.
+ 			  - INITCAP Function: Converts first letter of each uppercase and
+ 			    rest of them to lowercase.
+
+ 			* LOWER('Adam SMITH') -> adam smith
+ 			* UPPER('Adam SMITH') -> ADAM SMITH
+ 			* INITCAP('Adam SMITH') -> Adam Smith
+
+ 			* SELECT LOWER(first_name), UPPER(last_name), INITCAP(job_id)
+ 			  FROM employees;

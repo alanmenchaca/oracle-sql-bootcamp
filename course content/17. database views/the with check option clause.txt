@@ -1,0 +1,9 @@
+		 	
+	 ~ Using the WITH CHECK OPTION Clause ~
+	 	* The WITH CHECK OPTION clause is used to ensure that the user cannot perform any
+	 	  DML operations that the view cannot select.
+	 	* If a constraint is violated, or DML is performed violating the WHERE clause, it
+	 	  will be denied.
+	 		CREATE [OR REPLACE] [FORCE | NOFORCE] VIEW view_name
+	 		[(alias[, alias]...)] AS subquery
+	 		[WITH CHECK OPTION [CONSTRAINT constraint_name]];

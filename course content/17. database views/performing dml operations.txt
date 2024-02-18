@@ -1,0 +1,21 @@
+		 	
+	 ~ Performing DML Operations with Views ~
+	 	* Simple views allow DML operations
+	 	* Complex views restrict DML operations based on how they were created.
+	 		- Any DML operations are not allowed on a complex view!
+	 	* Performing DML operations using views is not the best practice.
+
+		 	-- DML operations with Complex Views
+			CREATE OR REPLACE VIEW emp_vw_60 AS
+			    SELECT DISTINCT employee_id, first_name, last_name, email, 
+			                    hire_date, job_id, department_id
+			    FROM employees_copy 
+			    WHERE department_id = 60;
+
+			-- SQL Error: ORA-01732: data manipulation operation not legal on this view
+			-- Complex views restrict DML operations based on how they were created.
+			INSERT INTO emp_vw_60 
+			    VALUES (214, 'Alex', 'Hummel', 'AHUMMEL', sysdate, 'IT_PROG', 60);
+			UPDATE emp_vw_60 SET job_id = 'SA_MAN' WHERE employee_id = 214;
+			DELETE FROM emp_vw_60;
+			

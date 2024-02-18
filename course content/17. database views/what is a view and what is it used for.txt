@@ -1,0 +1,27 @@
+	 	
+	 ~ What is a View and What is it Used for? ~
+	 	* A view is a schema object formed of a stored SQL query based on tables or
+	 	  other views.
+	 		CREATE VIEW view_name AS
+	 			SELECT DISTINCT UPPER(department_name) dept_name,
+	 				MIN(salary) min_sal, 
+	 				MAX(salary) max_sal
+	 			FROM employees e INNER JOIN departments d USING (department_id)
+	 			GROUP BY department_name
+	 			ORDER BY dept_name;
+
+	 	* A view is stored in the database as a SELECT statement.
+	 	* No data is stored in views.
+	 	* The tables that views are based on are called base tables.
+	 	* Views are used for:
+	 		- Restricting data access
+	 		- Simplifying data retrieval
+	 		- Presenting different views of the same data
+	 		- Providing logical data independence
+
+	 	
+	 ~ View Types ~
+	 	* Simple Views: Views that retrieve data from one table, containing no functions
+	 	  and no grouping data.
+	 	* Complex Views: Views that retrieve data from more than one table, or contain 
+	 	  functions or grouping of data.

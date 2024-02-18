@@ -1,0 +1,12 @@
+	 	
+	 ~ Modifying Views ~
+	 	* We can drop and re-create a view to modify it without losing any data.
+	 		- Views do not contain any data!
+	 	* Dropping a view removes all the privileges of that view.
+	 	* The REPLACE option of the CREATE VIEW statement modifies the view without
+	 	  the need to re-grant its privileges.
+
+	 		CREATE [OR REPLACE] [FORCE | NOFORCE] VIEW view_name
+		 	[(alias[, alias]...)] AS subquery
+		 	[WITH CHECK OPTION [CONSTRAINT constraint_name]]
+		 	[WITH READ ONLY [CONSTRAINT constraint_name]];

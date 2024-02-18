@@ -1,0 +1,13 @@
+		 	
+	 ~ Preventing DMLs using WITH READ ONLY ~
+	 	* The WITH READ ONLY clause prevents DML operations on a view.
+	 		CREATE [OR REPLACE] [FORCE | NO FORCE] VIEW view_name
+	 		[(alias[, alias]...)] AS subquery
+	 		[WITH CHECK OPTION [CONSTRAINT constraint_name]]
+	 		[WITH READ ONLY [CONSTRAINT constraint_name]]
+
+	 	* The WITH READ ONLY clause cannot be used together with the
+	 	  WITH CHECK OPTION clause.
+	 	  	CREATE [OR REPLACE] [FORCE | NO FORCE] VIEW view_name
+	 		[(alias[, alias]...)] AS subquery
+	 		[WITH READ ONLY [CONSTRAINT constraint_name]]

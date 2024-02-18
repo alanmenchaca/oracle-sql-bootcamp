@@ -1,0 +1,18 @@
+	 	
+	 ~ Creating Complex Views ~
+	 	* Can retrieve data from one or more tables.
+	 	* Complex views can contain:
+	 		- Functions
+	 		- Joins 
+	 		- GROUP BY
+	 		- DISTINCT
+	 		- ROWNUM
+	 		- ROWID
+
+	 		CREATE VIEW emp_cx_vw (DNAME, MIN_SAL, MAX_SAL) AS
+		    SELECT DISTINCT UPPER(department_name), MIN(salary), MAX(salary)
+		    FROM employees e INNER JOIN departments d USING (department_id)
+		    GROUP BY department_name;
+
+		* In Simple Views DML Operations are allowed!
+		* In Complex Views the Database Server decides if we can do DML operations.

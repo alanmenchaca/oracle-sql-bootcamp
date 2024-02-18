@@ -1,0 +1,11 @@
+		 	
+	 ~ Dropping Views ~
+	 	* A view can be removed by using the DROP VIEW statements.
+	 	* Dropping a view doesn't cause data loss on the base tables.
+	 	* Dropping a view means deleting its definition from the database.
+	 	* Dropping a view invalidates all the objects based on this view.
+	 		- For example if we use the emp_vw_50 in something like a trigger
+	 		 or a PL/SQL Package those objects will become invalid. 
+	 	* To drop a view, we need to be the owner of this view or have the
+	 	  DROP ANY VIEW privilege.
+	 		DROP VIEW view_name;

@@ -1,0 +1,15 @@
+	 	
+	 ~ Creating Simple Views ~
+	 	
+	 	CREATE [OR REPLACE] [FORCE | NOFORCE] VIEW view_name
+	 	[(alias[, alias]...)] AS subquery
+	 	[WITH CHECK OPTION [CONSTRAINT constraint_name]]
+	 	[WITH READ ONLY [CONSTRAINT constraint_name]];
+
+	 	* REPLACE: Modifies the view without the need to re-grant its privileges.
+	 	* FORCE: Creates the view even if the base table does not exist.
+	 	* NOFORCE: Creates the view only if the base table exists. (Default)
+	 	* SUBQUERY: The SELECT statement for the view.
+	 	* WITH CHECK OPTION: Prevents any kind of DML operations that the view
+	 	  cannot select.
+	 	* WITH READ ONLY: Prevents any DML operation on the view.

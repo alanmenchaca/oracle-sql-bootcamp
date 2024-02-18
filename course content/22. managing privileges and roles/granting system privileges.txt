@@ -1,0 +1,38 @@
+		 	
+	 ~ Granting System Privileges ~
+	 	* A system privilege is the right to perform a particular action on the
+	 	  database system.
+	 	* To grant a system privilege, we need one of the following:
+	 		- Need to be granted that system privilege with ADMIN OPTION.
+	 		- Need to have GRANT ANY PRIVILEGE.
+	 	* SYSTEM_PRIVILEGE_MAP lists all system privileges.
+	 	* The DBA role has many system privileges.
+	 	* The user who gets the privilege is called the Grantee.
+	 		GRANT system_privilege[, system_privilege[, ...]] | [ALL PRIVILEGES]
+	 		TO [user | role | PUBLIC][, user | role[, ...]]
+	 		[WITH ADMIN OPTION]
+	 		[CONTAINER = {CURRENT | ALL}];
+	 	* PUBLIC is a special role every user has by default.
+	 	* USER_SYS_PRIVS lists all the system privileges that a user has.
+	 	* SESSION_PRIVS lists all the system privileges that a user has
+	 	  for that session.
+
+	 	~ System privileges should be granted only to trusted users!
+	 	~ The WITH ADMIN OPTION is used only for system privileges!
+
+		 	
+	 ~ System Privileges ~
+		* SYSDBA and SYSOPER are special administrative privileges to perform
+		  high-level database administration tasks.
+		* SYSDBA gives full control over the database. It allows users to:
+			- Create, Drop, and Alter the database.
+			- Startup and shutdown the database.
+			- Access all data dictionary view, v$ views and x$ structures, etc.
+		* SYSOPER allows a user to perform basic operational tasks but without the
+		  ability to look athe user data.
+			- Startup and shutdown the database.
+			- Alter the database for open, mount, backup, etc.
+		* These privileges allow users to access the database even when it is not open.
+		~ SYS connects as SYSDBA and PUBLIC connects as SYSOPER administrative privileges
+		  by default.
+ 

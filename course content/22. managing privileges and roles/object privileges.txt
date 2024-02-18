@@ -1,0 +1,34 @@
+		 	
+	 ~ Object Privileges ~
+	 	* An object privilege is permission to perform a particular action on a 
+	 	  specific database object.
+	 		- SELECT, READ, INSERT
+	 		- UPDATE, DELETE, ALTER
+	 		- INDEX, EXECUTE, REFERENCES
+	 	
+	 	~ SELECT: Enables a user to perform select operations (table, view, materialized views,
+	 	  		  sequence, synonym).
+	 	~ READ: The same as the SELECT privilege, except for the ability to lock the table with
+	 	  		a FOUR UPDATE clause. 
+	 	~ INSERT: Enables users to perform insert operations (table, view, synonym).
+	 	~ UPDATE: Enables users to perform update operations (table, view, synonym).
+	 	~ DELETE: Enables users to perform delete operations (table, view, synonym).
+	 	~ ALTER: Enables users to modify the structure of the database object.
+	 	~ INDEX: Enables users to create indexes (tables, materialized views).
+	 	~ EXECUTE: Allows users to execute PL/SQL program unit.
+	 	~ REFERENCES: Allows users to create foreign keys (tables, materialized views).
+
+	 	* The owner of an object has all the privileges for that object.
+	 	* The owner of an object can grant any privilege on that object.
+	 		GRANT UPDATE (first_name, last_name) ON employees_copy TO user_name;
+	 		- We can specify columns only when granting the INSERT, UPDATE or REFERENCES
+	 		  privilege.
+	 		- SELECT * FROM user_col_privs;
+	 	* All the privileges of an object can be granted to a user or role in one step using
+	 	  the GRANT ALL PRIVILEGES statement.
+	 	* WITH GRANT OPTION allows grantee to grant the related privilege to others.
+	 	* To grant SELECT or READ privileges on a view, the user needs to have those privileges
+	 	  WITH GRANT OPTION on all of the objects the view has.
+	 	* The GRANT ANY OBJECT PRIVILEGE system privilege allows grantees to grant privileges
+	 	  on every object in the database.
+  

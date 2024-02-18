@@ -1,0 +1,47 @@
+		 	
+	 ~ Creating a Database User ~
+	 	* A database user is an account which can connect to a database, own database
+	 	  objects, and perform operations on the database.
+	 	* To create a user it is necessary to have the DBA role or the CREATE USER
+	 	  privilege.
+	 	* A schema is a set of objects belonging to a user.
+
+	 		*** COMMON USER ***
+	 	* A common user is a database user which has the same identity in the root
+	 	  of every pugglable database (e.g., SYS, SYSTEM).
+	 	* A common user created in an application container is called an Application
+	 	  Common User.
+	 	* Common User characteristics:
+	 		- Can be created only when connected to the container database.
+	 		- The name must begin with the COMMON_USER_PREFIX initialization parameter
+	 		  (C## is the default).
+	 		- A common user name must be unique for all the container and pluggable databases.
+	 		- A common user can have different schemas in differente containers.
+
+	 		*** LOCAL USER ***
+	 	* A local user is a database user which can operate only within a single
+	 	  pluggable database.
+	 	* Local users have the following characteristics:
+	 		- Accessible only within its pluggable database.
+	 		- Can administer its pluggable database if it has the SYSDBA privilege.
+	 		- Cannot be created in the root database.
+	 		- Cannot be named beginning with the value of COMMON_USER_PREFIX initialization
+	 		  parameter (c## or C## by default).
+	 		- Must have a unique name within its pluggable database.
+
+	 	CREATE USER user_name IDENTIFIED BY password;
+	 	CREATE USER user_name
+	 	[IDENTIFIED BY password | NO AUTHENTICATION]
+	 	[PASSWORD EXPIRE]
+	 	[ACCOUNT {LOCK | UNLOCK}]
+	 	[CONTAINER = {CURRENT | ALL}];
+	 		* Usernames are note case-sensitive. 
+	 		* Passwords are case-sensitive.
+	 		* The NO AUTHENTICATION clause creates a schema-only database user.
+	 		* The PASSWORD EXPIRE option forces the user to change the password at
+	 		  the first login.
+	 		* The ACCOUNT LOCK option creates the user as disabled.
+	 		* The CONTAINER clause specifies the privilege for that user to connect to
+	 		  other containers.
+	 		* The DBA_USERS data dictionary view shows all the user information in the
+	 		  database.

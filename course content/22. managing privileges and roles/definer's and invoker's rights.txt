@@ -1,0 +1,40 @@
+		 	
+	 ~ Definer's Rights & Invoker's Rights ~
+
+	 *** DEFINER'S RIGHTS ***
+	 	* Definer's Rights & Invoker's Rights are used to control access to the
+	 	  privileges necessary to run a user-defined program unit (like a procedure
+	 	  or a function).
+	 	* Users don't need any other privilege than the EXECUTE privilege to run a
+	 	  Definer's Rights program unit.
+	 		- The EXECUTE privilege will not grant any other privileges to grantees!
+	 		- If any privilege necessary for a program unit is revoked from the
+	 		  program-unit owner, that program unit will be invalid.
+	 	* The AUTHID DEFINER keywords are used to make a subprogram Definer's Rights.
+	 		- By default, all program units are created as Definer's Rights.
+	 	* Definer's Rights give better control over the program units by preventing
+	 	  direct access to its underlying objects.
+
+
+	*** INVOKER'S RIGHTS ***
+		* Users need to have the related privileges for all the objects inside the
+		  program units in addition to the EXECUTE privilege.
+		* Invoker's Rights are useful for increasing reuse of code.
+		* The AUTHID CURRENT_USER keywords are used to make a program unit Invoker's Rights.
+		* The AUTHID DEFINER and AUTHID CURRENT_USER keywords are used with packages,
+		  procedures, functions, views and types.
+		* Invoker's Rights program units should be created in a high-privileged schema.
+		* We can use INHERIT PRIVILEGES or INHERIT ANY PRIVILEGES to secure invoker's
+		  rights program units.
+		* All the users are granted INHERIT PRIVILEGES to PUBLIC by default.
+
+
+	REVOKE INHERIT [ANY] PRIVILEGES ON user FROM {subprogram_owner | PUBLIC};
+	GRANT INHERIT [ANY] PRIVILEGES TO {subprogram_owner | PUBLIC};
+	CREATE [OR REPLACE] VIEW view_name BEQUEATH {DEFINER | CURRENT_USER} AS ...;
+
+	* Code-Based Access Control (CBAC) can be used for a higher level of security on
+	  program units.
+		GRANT role[, ...] TO program_unit_type schema_name.program_unit_name[, ...];
+	* The concept of "LEAST PRIVILEGE" is simply to provide no more privileges than
+	  necessary to perform required actions.

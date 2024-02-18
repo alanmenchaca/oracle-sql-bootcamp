@@ -1,0 +1,22 @@
+		 	
+	 ~ What are Privileges and Why are they Used? ~
+	 	* Privileges are used to provide database authorization and security.
+	 	* To perform any action on the database, the required privileges are needed.
+	 		- Connnecting to a database
+	 		- Creating a table
+	 		- SELECTING data from a table
+	 		- Executing a function
+	 		- ...
+	 	* A user is created with no initial privileges.
+	 		- The SELECT Privilege
+	 		- The INSERT Privilege
+	 		- The DELETE Privilege
+	 	* Database security can be categorized into 2 groups:
+	 		1. System Security: Control the access and use of the database at the system
+	 		   level (Provided with System Privileges).
+	 		2. Data Security: Control the access and use of the database object (Provided
+	 		   with Object Privileges).
+	 	* Object owner has all the privileges for that objects.
+	 	* A Database Administrator (DBA) has the highest privileges on the database and
+	 	  its objects.
+	 	* A role is a group of privileges and roles.

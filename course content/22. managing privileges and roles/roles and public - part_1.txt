@@ -1,0 +1,35 @@
+		 	
+	 ~ roles & PUBLIC - part 1 ~
+	 	* A user has no privileges in the beginning and each operation on the database
+	 	  need a specific privilege.
+	 		- CREATE SESSION
+	 		- CREATE TABLE
+	 		- CREATE VIEW
+	 		- SELECT PRIVILEGE
+	 	* We can collect a group of privileges together and grant all those privileges
+	 	  to a user in just one step using roles.
+	 	* Roles are named groups of related privileges & roles.
+	 	* PUBLIC is a special role that every database user automatically has.  
+	 	* A role can be granted to any user, to a role, or to the PUBLIC role.
+	 	* Roles cannot be granted circularly, but only hierarchically.
+	 	* A role can be secured by a password.
+	 	* Roles can be local to a database or common for all the databases.
+	 	* Roles help to manage privileges dy namically.
+	 	* Roles can be enabled or disabled for a user for a session.
+
+	 	~ We can create application roles.
+	 	~ Roles can be granted to program units (Code Based Access Control Roles CBAC).
+	 	~  The CREATE ROLE system privilege is required to create a role.
+	 		CREATE ROLE role_name
+	 		[IDENTIFIED BY password | NOT IDENTIFIED]
+	 		[CONTAINER = {CURRENT | ALL}];
+	 	~ We need to connect to the root container to create common roles!
+	 	~ A user can have 148 active roles at most!
+	 		GRANT role | privilege[, role | privilege[, ...]]
+	 		TO [user | role | PUBLIC] [, user | role[, ...]]
+	 			[program_unit_type program_unit_name[, ...]]
+	 		[WITH ADMIN OPTION]
+	 		[CONTAINER = {CURRENT | ALL}];
+
+	 	~ To drop a role, we need to have the DROP ANY ROLE privilege or WITH ADMIN OPTION
+	 		DROP ROLE role_name;

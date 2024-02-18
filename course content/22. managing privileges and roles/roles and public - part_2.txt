@@ -1,0 +1,14 @@
+		 	
+	 ~ roles & PUBLIC - part 2 ~
+	 	* The database enables all default roles automatically when the user connects.
+	 	* Unauthorized roles granted to users directly are considered default roles.
+	 		SET ROLE
+	 			role_name [IDENTIFIED BY password [, role_name] [IDENTIFIED BY password[, ...]]]
+	 			| ALL [EXCEPT role_name,[role_name[, ...]]]
+	 			| NONE;
+
+	 		ALTER USER user_name
+	 		DEFAULT ROLE | role_name[, role_name[, ...]]
+	 		| ALL [EXCEPT role_name[, role_name[, ...]]]
+	 		| NONE;
+	 		

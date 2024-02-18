@@ -1,0 +1,43 @@
+		 	
+	 ~ Revoking System Priviles & Roles - part 1 ~
+	 	REVOKE privilege[, privilege[, ...]] | ALL [PRIVILEGES]
+	 	FROM {user | role | PUBLIC}[, {user | role}[, ...]]
+	 	[CONTAINER={CURRENT | ALL}];
+
+	 	* To revoke a system privilege from a user or role, we must have been granted
+	 	  the privilege WITH ADMIN OPTION, or have the GRANT ANY PRIVILEGE system privilege.
+	 	* A system privilege cannot appear more than once in the list of privileges to be
+	 	  revoked.
+	 	
+	 	REVOKE role[, role[, ...]] 
+	 	FROM {user|role|PUBLIC}[, {user|role}[, ...]]
+	 	[CONTAINER={CURRENT|ALL}];
+
+	 	REVOKE role[, role[, ...]] | ALL
+	 	FROM program_unit, [program_unit, [, ...]];
+
+	 	* To revoke a role from a user or role, we must have been granted the role WITH ADMIN
+	 	  OPTION, or have the GRANT ANY ROLE system privilege, or it must have been created
+	 	  by us.
+	 	* To revoke a role from a program unit, we must connect as the SYS user or we must be
+	 	  the schema owner of that program unit.
+	 	* A role cannot appear more than once in the list of roles to be revoked.
+
+
+	 ~ Revoking Object Priviles ~
+	 	REVOKE privilege[, privilege[, ...]] | ALL [PRIVILEGES] ON object_name
+	 	FROM {user | role | PUBLIC}[, {user | role}[, ...]]
+	 	[{CASCADE CONSTRAINTS | FORCE}]
+	 	[CONTAINER={CURRENT | ALL}];
+
+	 	* Using the CASCADE CONSTRAINTS clause while revoking the REFERENCES privilege revokes
+	 	  all the foreign key constraints referencing the related table.
+	 	* We use the FORCE keyword to revoke the EXECUTE object privilege on user-defined type
+	 	  objects with table or type dependencies.
+	 	* To revoke an object privilege, we must have been granted the privilege WITH GRANT OPTION
+	 	  or the GRANT ANY OBJECT PRIVILEGE system privilege, or we need to be the owner of that
+	 	  object.
+	 	* The program units will be invalid when the privileges of an object referenced by that
+	 	  program unit are revoked from the program unit owner.
+	 	* Revoking an object privilege from a user will automatically revoke that privilege from
+	 	  all the users and roles which are granted by that user.

@@ -1,0 +1,41 @@
+ 	
+	 ~ Tracking Changes in Data ~
+	 	* We can flashback a table to a specified System Change Number (SCN) or to
+	 	  a specific time.
+	 	* The VERSIONS clause is used to trace all the changes in a table between
+	 	  two specific times.
+	 	  	- A query that includes the VERSIONS clause is called a Version Query.
+		* There are two methods for tracking changes in data:
+			1. Flashback Query: Retrieves data that existed at a specific time in
+			   the past.
+			   
+			   SELECT ... FROM table_name 
+			   		AS OF TIMESTAMP timestamp_value | SCN scn_value;
+
+			   	SELECT * FROM employees_copy AS OF TIMESTAMP(sysdate - interval '1' minute)
+					WHERE employee_id = 100;
+
+					SELECT * FROM employees_copy AS OF scn 4011665
+					WHERE employee_id = 100;
+
+			2. Flashback Versions Query: Retrieves all the data that existed during
+			   a time interval in the past.
+
+			   SELECT ... FROM table_name
+			   		AS OF [TIMESTAMP BETWEEN time | MINVALUE AND time | MAXVALUE] | 
+			   			  [SCN BETWEEN scn | MINVALUE AND scn | MAXVALUE];
+
+			   	* MINVALUE and MAXVALUE Query retrieves all the data that existed during a
+			   	  time interval in the past.
+
+		* There are some important pseudocolumns that can be used with the versions query:
+			- VERSIONS_STARTTIME returns the time when the change was applied
+			- VERSIONS_STARTSCN returns the SCN when the change was applied
+
+			- VERSIONS_ENDTIME returns the time when the row version expired
+			- VERIONS_ENDSCN returns the SCN when the row version expried
+
+			- VERSIONS_XID returns the ID of a transaction which created the row version
+			- VERSIONS_OPERATION returns the operation type performed by the transaction
+
+		* We cannot use a table alias with a version query

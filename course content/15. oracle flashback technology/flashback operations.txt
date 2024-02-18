@@ -1,0 +1,42 @@
+ 	
+	 ~ FLASHBACK Operations ~
+
+	 [INTRODUCTION TO THE ORACLE FLASHBACK TECHNOLOGIES]
+	 	* Oracle Flashback feature is data recovery technology that help us to prevent
+	 	  data loss.
+	 	* If we delete some rows, truncate or drop tables by mistake, we can restore
+	 	  them to a specific point in the time or to a state before drop using FLASHBACK
+	 	  statement.
+	 	* We can restore a table to a certain time, to a restore point, to a System Change
+	 	  Number (SCN), or to before drop.
+	 	* What is the System Change Number?
+	 		- A System Change Number (SCN) is an incremental unique integer value associated
+	 		  with each change on the database.
+	 		-  Each time a commit is performed for a transaction, the Oracle server automatically
+	 		   creates a new system change number.
+		* FLASHBACK restores not only the table and its data, but also the associated constraints
+		  and indexes related to the dropped table.
+	    * Oracle allows us to restore not only the tables, but also a transaction, or the
+	      database itself using Flashback statements.
+	    * Flashback is extremely useful especially in test databases.
+	    * If there is physical damage on the database disks, flashback will not work because it is
+	      a logical operation.
+
+	 [USING FLASHBACK STATEMENTS]
+	 	* Multiple tables can be flashed back at once.
+	 	* While flashing back a table, all the table triggers are disabled. The ENABLE TRIGGERS
+	 	  clause will return the triggers enabled.
+	 	* To flashback a table, we need to enable row movement!
+	 		ALTER TABLE table_name ENABLE ROW MOVEMENT;
+
+	 		FLASHBACK TABLE [schema_name_1.]table_name_1 [,[schema_name_2.]table_name_2, ...]
+	 				  TO {{{SCN|TIMESTAMP} expr | RESTORE POINT restore_point}
+	 				  {[ENABLE|DISABLE} TRIGGERS] | BEFORE DROP [ RENAME TO table ]};
+
+	 		FLASHBACK TABLE employees_copy TO BEFORE DROP;
+	 		FLASHBACK TABLE employees_copy TO SCN 202381;
+	 		FLASHBACK TABLE employees_copy TO TIMESTAMP sysdate-1/1440;
+
+	 		CREATE RESTORE POINT salaries_updated;
+	 		FLASHBACK TABLE employees_copy TO RESTORE POINT salaries_updated;
+	 	 

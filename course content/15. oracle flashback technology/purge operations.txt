@@ -1,0 +1,22 @@
+ 	
+	 ~ RECYCLE BIN and PURGE Operations ~
+	 	* If you drop a table, all the dropped data (table, index, view, etc.) is stored
+	 	  in the RECYCLE BIN.
+	 	* The RECYCLE BIN is actually a data dictionary table containing information about
+	 	  dropped objects.
+	 	* When we flashback a table, related data is stored from the RECYCLE BIN.
+	 	* Each user can find their own objects in the RECYCLE BIN even if the user does
+	 	  not have SYSDBA privileges.
+	 	* If a user has SYSDBA privileges, then this user can see all the data in the
+	 	  entire database in the RECYCLE BIN.
+	 	* If we dont want a table to be stored in the RECYCLE BIN, we need to drop that
+	 	  table with the PURGE option.
+			DROP TABLE employees_copy PURGE; 
+
+		* If we want to remove a table from the recycle bin as well, then we can remove
+		  that dropped table from the recycle bin by writing:
+			PURGE TABLE employees_copy;
+
+		Warning: We can purge the whole RECYCLE BIN by using the following code:
+			PURGE RECYCLEBIN;
+					

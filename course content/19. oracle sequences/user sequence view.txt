@@ -1,0 +1,21 @@
+		 	
+	 ~ USER_SEQUENCE View ~
+	 	* Shows the properties of all the sequences that the current user owns.
+	 		
+	 		DESCRIBE USER_SEQUENCES;
+
+	 	* SEQUENCE_NAME: Name of the sequence.
+	 	* MINVALUE: Minimum value of the sequence.
+	 	* MAXVALUE: Maximum value of the sequence.
+	 	* INCREMENT_BY: Specified interval between sequence numbers.
+	 	* CYCLE_FLAG: Whether the sequence starts with the minimum value after
+	 	  reaching the maximum value (Y=CYCLE / N=NOCYCLE).
+	 	* ORDER_FLAG: Whether sequence numbers are generated in order 
+	 	  (Y=ORDER / N=NOORDER).
+	 	* CACHE_SIZE: Number of sequence values stored in memory.
+	 	* LAST_NUMBER: Last sequence number written to disk or the maximum value
+	 	  in the cache (if sequence caching is active).
+
+	 		SELECT * FROM user_sequences;
+	 		SELECT * FROM all_sequences;
+	 		SELECT * FROM dba_sequences;

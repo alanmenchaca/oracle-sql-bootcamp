@@ -1,0 +1,32 @@
+		 	
+	 ~ Using Sequences ~
+	 	* NEXTVAL: Returns the next value of the sequence.
+	 		SELECT employee_seq.nextval FROM dual;
+	 	* CURVAL: Returns the current sequence value. 
+	 		SELECT employee_seq.currval FROM dual;
+
+	 	!! Before using any sequence, it is mandatory to initialize it first using the
+	 	   NEXTVAL keyword!
+
+	 	* If you try to retrieve the current value without initializing it for your session,
+	 	  you will get an error. 
+
+	 		-- *Cause: sequence CURRVAL has been selected before sequence NEXTVAL
+			SELECT employee_seq.currval FROM dual;
+
+		* NEXTVAL and CURRVAL can be used:
+			- In the SELECT list of a query (not in a subquery or a view).
+			- In the SELECT list of a subquery in an INSERT statement.
+			- In the VALUES part of an INSERT statement.
+			- In the SET clause of an UPDATE statement.
+
+			INSERT INTO 
+				employees (employee_id, first_name, last_name, email, hire_date, salary, job_id) 
+				VALUES (employee_seq.nextval, 'Alex', 'Earnst', 
+					    'AEARNST', sysdate, '2500', 'IT_PROG');
+
+		* NEXTVAL and CURRVAL cannot be used:
+			- With the DISTINCT keyword.
+			- In the GROUP BY clause
+			- In the HAVING clause.
+			- In the ORDER BY clause.

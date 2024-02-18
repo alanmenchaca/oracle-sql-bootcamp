@@ -1,0 +1,12 @@
+		 	
+	 ~ Sequence Caching ~
+	 	* Sequences can be cached in memory to improve performance.
+	 	* Cache size can be defined when the sequence is initially created or altered
+	 	  (Default: 20).
+	 	* The specified number of sequence values is cached into memory on the first call.
+	 	* Sequence values are retrieved from the cache on request. 
+	 	* After the last cached sequence value in memory is used, the next set of sequence
+	 	  values is cached.
+	 	* Cashed sequence values will be lost on any system failure, even if we haven't
+	 	  used them all.
+	 		ALTER SEQUENCE [schema_name.]sequence_name CACHE cache_num;

@@ -1,0 +1,30 @@
+		 	
+	 ~ Modidying Sequences ~
+	 	* A sequence can be modified using the ALTER SEQUENCE statement.
+
+		 	ALTER SEQUENCE sequence_name
+		 	| { INCREMENT BY increment_num }
+		 	| { MAXVALUE max_num | NOMAXVALUE }
+		 	| { MINVALUE min_value | NOMINVALUE }
+		 	| { CYCLE | NOCYCLE }
+		 	| { CACHE cache_num | NOCACHE }
+		 	| { ORDER | NOORDER }
+		 	];
+
+		* We must be the owner of the sequence or have the ALTER ANY SEQUENCE privilege to
+		  modify a sequence.
+		!! Only future sequence numbers are affected.
+		* We cannot use the START WITH option while modifying a sequence.
+			* We must drop and re-create the sequence to start the sequence from a different
+			  number.
+		* While modifying sequences, some validations are performed (e.g., MAXVALUE cannot be
+		  smaller than the CURRENT value).   
+
+			ALTER SEQUENCE employee_seq
+			INCREMENT BY 5
+			MAXVALUE 99999
+			CACHE 30
+			NOCYCLE;
+		
+		* Parameters not defined in the ALTER SEQUENCE statement, will remain the same.
+		

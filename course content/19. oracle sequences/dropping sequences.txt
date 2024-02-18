@@ -1,0 +1,7 @@
+		 	
+	 ~ Dropping Sequences ~
+	 	* The DROP SEQUENCE statement is used to remove a sequence.
+	 		DROP SEQUENCE sequence_name;
+	 	* To drop a sequence, we need to have the DROP ANY SEQUENCE privilege or we need
+	 	  to be the owner of that sequence.
+	 		DROP SEQUENCE employee_seq;

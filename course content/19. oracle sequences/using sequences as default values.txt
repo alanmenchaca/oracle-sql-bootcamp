@@ -1,0 +1,10 @@
+		 	
+	 ~ Using Sequences as Default Values ~
+	 	* We can use sequences as default values for numeric columns.
+	 	* We can use CURRVAL or NEXTVAL as a default value as long as the sequences exists.
+	 		CREATE TABLE temp (
+	 			column_1 NUMBER DEFAULT employee_seq.NEXTVAL NOT NULL,
+	 			column_2 VARCHAR2(50)
+	 		);
+	 		INSERT INTO temp(column_2) VALUES ('Alex');
+	 		SELECT * FROM temp;

@@ -1,0 +1,10 @@
+		 	
+	 ~ What is a Sequence? ~
+	 	* A sequence is a user-created object that automatically generates unique integer numbers.
+	 	* It is generally used for populating primary key column values.
+	 	* A sequence is a shareable object that can be shared by multiple users.
+	 	* Sequence numbers are stored independent of tables so a sequence can be used by multiple
+	 	  users and for multiple tables.
+	 	* Sequence numbers cannot be rolled back.   
+	 	* Sequences can be used anywhere to generate unique numbers.
+	 	* Sequences access efficiency can be improved by chaching sequences in memory.

@@ -1,0 +1,14 @@
+	
+	 ~ ACCEPT/PROMPT ~
+	 Prompting for Values using ACCEPT/PROMPT Commands
+
+	 	* The most reliable and robust method for getting input from the
+	 	  user is to explicitly prompt for values using the ACCEPT and 
+	 	  PROMPT commands.
+	 		- ACCEPT emp_id PROMPT 'Please Enter an Employee ID:';
+	 	* The ACCEPT command takes input from the user and stores it in
+	 	  a user variable.
+	 	* The PROMPT command is used to display a message to the user for
+	 	  supplying a brief explanation of what our script is going to
+	 	  accomplish.
+	 	  

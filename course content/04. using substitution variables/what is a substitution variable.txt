@@ -1,0 +1,24 @@
+	
+	 ~ What is a Substitution Variable? ~
+	 	* A substitution variable can be thought as a user variable.
+	 	* The substitution variables are placeholders in an SQL script where we want
+	 	  to substitute some values at runtime.
+	 	* The ampersand (&) character is used before the substitution variable in
+	 	  the query.
+	 	  	- SELECT employee_id, first_name, last_name, department_id
+	 	  	  	FROM employees WHERE department_id = &department_no; 
+	 	* If we want to use a substitution variable for a string or a date, we need
+	 	  to make sure that the valuse is enclosed in single quotes.`
+	 		- SELECT employee_id, first_name, last_name, department_id
+	 	  	  	FROM employees WHERE department_id = '&first_name'; 
+	 	* We can use more than one substitution variable at various places in an
+	 	  SQL statement like:
+	 	  	- WHERE Condition
+	 	  	- ORDER BY Clause
+	 	  	- Column Expressions
+	 	  	- Table Names
+	 	  	- Entire SELECT Statements
+	 	  		* SELECT employee_id, first_name, last_name, &column_name
+	 	  		  FROM &table_name
+	 	  		  WHERE &condition
+	 	  		  ORDER BY &order_by_clause;

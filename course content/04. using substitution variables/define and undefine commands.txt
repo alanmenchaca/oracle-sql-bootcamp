@@ -1,0 +1,19 @@
+	
+	 ~ DEFINE & UNDEFINE Commands ~
+	 Using Double Ampersand (&&) Variables
+	 	* Using a double ampersand in front of a substitution variable tells
+	 	  SQL Developer or SQL*Plus to define that variable for the duration
+	 	  of the session.
+	 		- SELECT employee_id, first_name, last_name, salary
+	 		  	FROM employees
+	 		  	WHERE salary = &&sal
+	 		  	OR salary = &sal + 1000;
+	 	* The DEFINE and UNDEFINE commands allow us to explicitly create and
+	 	  delete user variables.
+	 	* The DEFINE commands is used to define a new user-variable and assign
+	 	  it a value.
+	 	* DEFINE can be used to display the value of a specific user variable
+	 	  or to display the values of all user variables.
+	 		- DEFINE variable_name = value;
+	 	* The UNDEFINE command is used to remove a user defined variable definition.
+	 		- UNDEFINE variable_name;

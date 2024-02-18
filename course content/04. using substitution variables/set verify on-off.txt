@@ -1,0 +1,9 @@
+	
+	 ~ SET VERIFY ON/OFF ~
+	 	* The VERIFY command displays the status of the variable before
+	 	  and after the substitution.
+	 	* The VERIFY command can ba used in two ways which are:
+	 		- SET VERIFY ON; -- Turns on verification.
+	 		- SET VERIFY OFF; -- Turns off verification.
+	 	* SET DEFINE OFF; -- Turns off variable substitution.
+	 	* SET DEFINE ON; -- Turns on variable substitution.

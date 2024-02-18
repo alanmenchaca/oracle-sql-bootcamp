@@ -1,0 +1,13 @@
+	
+	 ~ Nested Group Functions ~
+		* Group functions can be nested.
+		* The output of the inner function is the input of the outer function.
+		* We have to use the GROUP BY clause when using nested group functions.
+		* Group functions can be nested to a depth of two.
+			- Maximum nested group function limit.
+
+		Groupfunction1(Groupfunction2)
+
+		SELECT MAX(AVG(salary))
+		FROM employees
+		GROUP BY department_id;

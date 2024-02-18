@@ -1,0 +1,33 @@
+	
+	 ~ GROUP BY Clause (part 1) ~
+		- Creates groups of values using the group functions.
+			* SELECT expression1, expression2, ..., expression_n,
+					 aggregate_function(aggregate_expression)
+			  FROM table
+			  [WHERE condition] 
+			  GROUP BY expression1, expression2, ..., epxression_n
+			  [ORDER BY order_expression]
+		- We can use more than one expression -or column- in a GROUP BY clause.
+		- The SELECT clause cannot have any other individual columns than what
+		  is used with the GROUP BY clause.
+		- We don't need to use all the columns used with the GROUP BY clause in
+		  the SELECT statement.
+		- In the SELECT statement, we can use the group functions with different
+		  columns than the GROUP BY has.
+		- The GROUP BY clause groups the rows(not the columns) considering the
+		  columns used with the GROUP BY clause.
+		- We can use as many group functions as we want.
+		- Column aliases cannot be used with the GROUP BY clause.
+		- The ORDER BY clause cannot have any other individual columns than the
+		  GROUP BY clause has.
+		- We can use the WHERE clause to restrict the resulting data.
+
+		Can we show the average salaries of each job id in a single salary?
+			- SELECT job_id, AVG(salary) FROM employees
+			  GROUP BY job_id
+			  ORDER BY AVG(salary);
+
+		We can use more than one column with the GROUP BY clause.
+			- SELECT job_id, department_id, manager_id, AVG(salary)
+			  FROM employees
+			  GROUP BY department_id, job_id, manager_id;

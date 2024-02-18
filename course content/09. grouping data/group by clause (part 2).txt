@@ -1,0 +1,49 @@
+	
+	 ~ GROUP BY Clause (part 2) ~
+		- The SELECT clause cannot have any different columns than what is
+		  used in the GROUP BY clause.
+
+			* The following statement don't work:
+				- SELECT job_id, department_id, AVG(salary)
+				  FROM employees
+				  GROUP BY department_id
+				  ORDER BY AVG(salary);
+
+			* The following statement is correct:
+				- SELECT job_id, department_id, AVG(salary)
+				  FROM employees
+				  GROUP BY department_id, job_id
+				  ORDER BY AVG(salary);
+
+		- We don't need to use all the columns used with the GROUP BY clause in
+		  the SELECT statement.
+			* SELECT AVG(salary) FROM employees GROUP BY department_id;
+
+		- We can use as many group functions as we want in a SELECT statement while
+		  working with the GROUP BY clause.
+		 	* SELECT AVG(salary), SUM(salary), MIN(salary), MAX(salary), COUNT(*)
+		 	  FROM employees 
+		 	  GROUP BY department_id 
+		 	  ORDER BY AVG(salary);
+
+		- Column aliases cannot be used with the GROUP BY clause, but they can be 
+		  used with the ORDER BY clause.
+		    * The following statement don't work:
+		  		- SELECT department_id AS Departments, AVG(salary)
+		  	  	  FROM employees
+		  	  	  GROUP BY Departments
+		  	  	  ORDER BY AVG(salary);
+
+		  	* The following statement is correct:
+		  		- SELECT department_id AS Departments, AVG(salary)
+		  	  	  FROM employees
+		  	  	  GROUP BY department_id
+		  	  	  ORDER BY Departments;
+
+		  	* The Order of Execution = Query Processing Order
+
+		- We can use the WHERE clause to restrict the resulting data.
+			* SELECT job_id, department_id, AVG(salary) FROM employees
+			  WHERE job_id IN('ST_MAN', 'SH_CLERK', 'ST_CLERK')
+			  GROUP BY job_id, department_id
+			  ORDER BY AVG(salary);

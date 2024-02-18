@@ -1,0 +1,16 @@
+	
+	 ~ TO_CHAR, TO_DATE, TO_NUMBER Functions ~
+		* Converts the NUMBER or DATE to the VARCHAR2 data type in the specified
+		  format model.
+			- TO_CHAR(date | number, [format_model], [nls_parameter])
+				- date | number -> This is the value to be converted into the
+				  VARCHAR2 type. It can be a date or a number.
+				- format_model -> The input value is converted to the VARCHAR2
+				  data type in the specified format model.
+				- nls_parameter -> Specifies the language for the name and
+				  abbreviations of the days and months (E.g., Monday <> Mon,
+				  January <> Jan, etc.).
+					* NLS: National Language Support
+		* The TO_CHAR function is case-sensitive.
+			- SELECT first_name, last_name, TO_CHAR(hire_date, 'YYYY')
+			  	FROM employees WHERE TO_CHAR(employee_id) = '100';

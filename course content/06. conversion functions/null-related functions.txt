@@ -1,0 +1,46 @@
+	
+	 ~ Null-Related Functions ~
+		* NVL Function:
+			- NVL(Expression1, Expression2)
+			- If expression1 is not null, then NVL() function returns expression1.
+			- If expression1 is null, then NVL() function returns expression2.
+			- Data types can be characters, numbers or dates.
+			- Data types must be match with each other (number-number, date-date, ...).
+			- The NVL function is extremely useful in arithmetic operations to avoid
+			  calculation errors.
+				* SELECT job_id, first_name, last_name, commission_pct,
+				  	NVL(commission_pct, 0) AS NVL_COMM_PCT FROM employees
+				  	WHERE job_id IN('SA_REP', 'IT_PROG');
+
+		* NVL2 Function:
+			- The NVL2 functions allow us replace a value when a null value is
+			  encountered as well as when a non-null value is encountered.
+			- NVL2(Expression1, Expression2, Expression3)
+			- If the Expression1 is not null, then, it returns the Expression2. If the
+			  Expression1 is NULL, then, the Expression3 is returned.
+			- And the Expression1 does not have the same data type in Expression2 and
+			  Expression3. But, the Expression2 and Expression3 must be in the same
+			  data type.
+			- Data types can be the characters, numbers or dates.
+				- SELECT job_id, first_name, last_name, commission_pct,
+				  	NVL2(commission_pct, 'has', 'has not') AS "NVL2 EXAMPLE"
+				  	FROM employees WHERE job_id IN('SA_REP', 'IT_PROG')
+				  	ORDER BY commission_pct NULLS LAST;
+
+		* NULLIF Function:
+			- NULLIF(Expression1, Expression2)
+			- Compares Expression1 and Expression2. If they are equal, returns NULL.
+			  But, if they are not equal, returns Expression1.
+			- The Expression1 and Expression2 must be in the same data type.
+				- SELECT first_name, last_name, LENGTH(first_name) AS "LEN2",
+				  NULLIF(LENGTH(first_name), LENGTH(last_name)) AS "RESULT"
+				  FROM employees;
+
+		* COALESCE Function:
+			- The COALESCE function accepts a list of arguments and returns the first
+			  one that evaluates to a non-null value.
+			- COALESCE(Expression1, Expression2, ..., ExpresionN)
+			- It accepts at least two or more parameters.
+			- If all the specified expressions are NULL, then the function returns NULL.
+			- All of the expressions must be in the same data type.
+			

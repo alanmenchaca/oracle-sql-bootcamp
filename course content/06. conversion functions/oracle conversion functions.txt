@@ -1,0 +1,34 @@
+	
+	 ~ Oracle Conversion Functions ~
+		* Oracle Conversion Functions convert one data type into another.
+			- Oracle Conversion Functions:
+				* Implicit Data Type Conversion
+				* Explicit Data Type Conversion
+
+		1. Implicit Conversion: Oracle server automatically converts some data
+		   type to the required one.
+		   * Although implicit conversion converts some data types automatically,
+		     it is recommended to use the explicit conversion functions to ensure
+		     the reliability of SQL statements.
+		2. Explicit Conversion: Explicit conversions are done using the conversion
+		   functions explicitly.
+
+
+	 ~ Implicit Data Type Conversion ~
+		* A VARCHAR2 or CHAR value is converted to a NUMBER or a DATE by the Oracle
+		  server automatically.
+		* A NUMBER or a DATE value is automatically converted to character data by
+		  the Oracle server.
+		* The implicit conversions are performed only if the characters match with
+		  a valid number or date.
+			- VARCHAR or CHAR -> NUMBER
+			- VARCHAR2 or CHAR -> DATE
+			- NUMBER -> VARCHAR2
+			- DATE -> VARCHAR2
+
+	 ~ Explicit Data Type Conversion ~
+		* Used for converting data type of a value to another data type explicitly.
+		* There are 3 functions for explicit data type conversion which are:
+			1. TO_CHAR()
+			2. TO_NUMBER()
+			3. TO_DATE()

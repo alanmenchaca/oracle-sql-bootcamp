@@ -1,0 +1,23 @@
+	
+	 ~ NUMBER Format Models ~
+		* Number format models are used with the TO_CHAR function to display the
+		  numeric values in different formats.
+			- 9 -> Specifies the number of digits
+			- 0 -> Specifies leading or trailing zeros.
+			- $ -> Adds dollar sign.
+			- L -> Displays local currency symbol.
+			- . -> Displays a decimal point.
+			- , -> Displays comma as indicator.
+			* SELECT TO_CHAR(salary, '$99,999.99'), salary FROM employees;
+
+	 ~ TO_NUMBER Function ~
+		* The TO_NUMBER function is used to convert a texto to a number.
+			- TO_NUMBER(char, [, 'format_model'])
+		* SELECT TO_NUMBER('6,152.21', '$99,999.99') AS "FORMATTED NUMBER" FROM dual;
+
+	 ~ TO_DATE Function ~
+		* Converts the characters to a DATE data type in the specified format model.
+			- TO_DATE(char, [, 'format_model'])
+		* SELECT first_name, last_name, 
+		  	TO_CHAR(hire_date, 'DDSPTH Month YYYY') AS "Hire Date" FROM employees
+		  	WHERE hire_date > TO_DATE('Jun 12, 2005', 'Mon DD, YYYY');

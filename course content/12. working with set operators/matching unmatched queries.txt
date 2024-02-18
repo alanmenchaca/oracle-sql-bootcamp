@@ -1,0 +1,17 @@
+	
+	 ~ Matching Unmatched Queries in SET Operations ~
+	 	* The queries to be combined may not have the same number of columns.
+	 	* The NULL values can be used to match unmatched queries.
+
+	 	SELECT job_id, null, first_name FROM employees WHERE department_id = 80
+		UNION
+		SELECT job_id, department_id, null FROM job_history;
+
+	 	SELECT job_id, null AS department_id, first_name, last_name FROM employees
+		UNION ALL
+		SELECT job_id, department_id, null, null FROM job_history;
+
+		-- Using a static value instead of a NULL value.
+		SELECT job_id, 0 AS department_id, first_name, last_name FROM employees
+		UNION ALL
+		SELECT job_id, department_id, null, null FROM job_history;

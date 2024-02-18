@@ -1,0 +1,60 @@
+	
+	 ~ Working with Oracle SET Operators ~
+	 	* The SET operators combine the results of two or more queries and return
+	 	  as one result.
+	 
+	 	SELECT column_1, column_2, ..., column_n FROM table_1
+	 	SET_OPERATOR
+	 	SELECT column_1, column_2, ..., column_n FROM table_2
+	 	SET_OPERATOR
+	 	SELECT column_1, column_2, ..., column_n FROM table_n;
+
+	 	* There are 4 SET operators in Oracle SQL:
+	 		- UNION: Returns all rows of both queries by eliminating duplicated rows.
+	 		- UNION ALL: Returns all rows of both queries including duplicates.
+	 		- INTERSECT: Returns common rows of both queries.
+	 		- MINUS: Returns unique rows of the first query.
+
+	 	* Queries using the SET operators are called Compound Queries.
+	 	* All SET Operators have equal precedence.
+	 	* The SET Operators are executed from top to bottom.
+	 	* Using the parentheses can change the execution order explicitly.
+
+	 		SELECT * FROM books
+	 		UNION
+	 		(SELECT * FROM movies
+	 		UNION
+	 		SELECT * FROM documentaries);
+
+	 	* The number of columns or expressions in queries must match.
+	 	* Data types of each column in queries must match with the corresponding column.
+	 		- In both tables col_1, col_2 and col_3 are of the same data type
+
+	 		SELECT col_1, col_2, col_3, FROM table_1
+	 		UNION
+	 		SELECT col_1, col_2, col_3, FROM table_2
+
+	 	* The ORDER BY clause is used only once and at the end of the compound query.
+
+	 		SELECT ID, title, FROM books
+	 		UNION
+	 		SELECT ID, title FROM movies
+	 		ORDER BY title;
+
+	 	* The output is sorted in ascending order by default.
+
+	 		SELECT ID, title, FROM books
+	 		UNION
+	 		SELECT ID, title FROM movies
+	 		ORDER BY title DESC, ID ASC;
+
+	 	* Duplicated rows are eliminated automatically in all SET operators except for
+	 	  the UNION ALL.
+	 	* Column headings come from the first query.
+
+	 		SELECT ID book_id, title AS "Title comes from here" FROM books
+	 		UNION
+	 		SELECT ID, title FROM movies;
+
+	 	JOIN Operators -> combine columns: column_1, column_2, column_3, ...
+	 	SET Operators -> combine rows: row_1, row_2, row_3, ...

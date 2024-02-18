@@ -1,0 +1,12 @@
+	
+	 ~ INTERSECT Operator ~
+	 	* Returns rows which are common in both queries.
+
+	 	SELECT * FROM retired_employees
+		INTERSECT
+		SELECT * FROM employees;
+
+		SELECT job_id FROM job_history
+		INTERSECT
+		SELECT job_id FROM employees WHERE department_id = 80;
+		

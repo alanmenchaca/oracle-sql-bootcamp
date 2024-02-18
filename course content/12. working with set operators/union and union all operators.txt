@@ -1,0 +1,22 @@
+	
+	 ~ UNION and UNION ALL Operators ~
+
+	 *** UNION Operator ***
+	 	* Combine the results of two or more SELECT statements by eliminating
+	 	  duplicated rows.
+
+	 	SELECT * FROM retired_employees
+		UNION
+		SELECT * FROM employees
+		WHERE job_id = 'IT_PROG';
+
+	 	SELECT job_id FROM job_history
+	 	UNION
+	 	SELECT job_id FROM employees WHERE department_id = 80;
+
+	 *** UNION ALL Operator ***
+	 	* The UNION is usually slower than UNION ALL!
+
+	 	SELECT job_id FROM job_history
+	 	UNION ALL
+	 	SELECT job_id FROM employees WHERE department_id = 80;

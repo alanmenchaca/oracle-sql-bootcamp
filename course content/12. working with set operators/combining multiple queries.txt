@@ -1,0 +1,28 @@
+	
+	 ~ Combining Multiple Queries with SET Operators ~
+	 	* Multiple queries can be combined with the SET operators.
+	 	* SET operators can be different than each other.
+	 	* ALL SET operators have equal precedence. 
+	 	* Queries are evaluated from top to bottom (left to right).
+
+	 	SELECT first_name, last_name, salary, department_id FROM employees
+		UNION ALL
+		SELECT first_name, last_name, salary, department_id FROM employees
+		    WHERE department_id = 30
+		UNION
+		SELECT first_name, last_name, salary, department_id FROM retired_employees
+		ORDER BY salary;
+
+		SELECT first_name, last_name, salary, department_id FROM employees
+		MINUS
+		SELECT first_name, last_name, salary, department_id FROM employees
+		    WHERE department_id = 30
+		INTERSECT
+		SELECT first_name, last_name, salary, department_id FROM retired_employees
+		ORDER BY salary;
+
+		* [NOTE]: To comply with emerging SQL standards, a future release of Oracle 
+		  will give the INTERSECT operator greater precedence than the other set opterators. Therefore, you should use parentheses to specify order of 
+		  evaluation in queries that use the INTERSECT operator with other set 
+		  operators.
+		  

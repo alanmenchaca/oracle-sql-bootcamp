@@ -1,0 +1,14 @@
+	
+	 ~ MINUS Operator ~
+	 	* Returns distinct rows from the first query that are not returned
+	 	  by the second query.
+
+	 	SELECT job_id FROM job_history
+		MINUS
+		SELECT job_id FROM employees WHERE department_id = 80;
+
+
+	 	SELECT * FROM retired_employees
+		MINUS
+		SELECT * FROM employees;
+		

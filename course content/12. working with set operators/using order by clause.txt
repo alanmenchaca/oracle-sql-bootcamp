@@ -1,0 +1,29 @@
+	
+	 ~ Using ORDER BY with SET Operators ~
+	 	* The ORDER BY clause is used only once at the end of the compound query.
+
+	 	SELECT first_name, last_name, salary, department_id FROM employees
+		UNION
+		SELECT first_name, last_name, salary, department_id FROM retired_employees
+		ORDER BY salary;
+		
+		SELECT first_name, last_name, salary, department_id FROM employees
+		UNION
+		SELECT first_name, last_name, salary, department_id FROM retired_employees
+		ORDER BY salary DESC;
+
+		* It recognizes the columns and aliases that only exist in the first query.
+
+		SELECT first_name, last_name, salary s, department_id FROM employees
+		UNION
+		SELECT first_name, last_name, salary s, department_id FROM retired_employees
+		ORDER BY s DESC;
+
+		* By default, the compound query is sorted in ascending order by the first
+		  column of the first query.
+
+		SELECT job_id, department_id, first_name FROM employees 
+		WHERE department_id = 80
+		UNION 
+		SELECT job_id, department_id, null FROM job_history
+		ORDER BY department_id;
